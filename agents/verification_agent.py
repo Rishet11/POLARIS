@@ -1,28 +1,30 @@
 """
 POLARIS Verification Agent
-Handles KYC verification against Offer Mart.
+Confirms KYC details from the CRM Server.
 """
 
 from typing import Any, Dict
 from .base_agent import BaseAgent
-from offer_mart import lookup_customer_by_phone, lookup_customer_by_id
+from mock_apis import CRMServerAPI, OfferMartAPI
 
 
 class VerificationAgent(BaseAgent):
     """
     Verification Agent for KYC verification.
     
-    Input: Customer phone or ID
-    Output: {kyc_verified, customer_profile}
+    Responsibilities:
+    - Fetch customer details from CRM Server
+    - Verify KYC status
+    - Retrieve pre-approved offer from Offer Mart
     
-    Rules:
-    - Verify against Offer Mart database
-    - Return full customer profile if verified
-    - No LLM calls needed (pure database lookup)
+    Input: Customer phone or ID
+    Output: {kyc_verified, customer_profile, preapproved_offer}
     """
     
     def __init__(self):
         super().__init__("VERIFICATION_AGENT")
+        self.crm_api = CRMServerAPI()
+        self.offer_api = OfferMartAPI()
     
     def get_system_prompt(self) -> str:
         # Not used as this agent doesn't need LLM
@@ -30,57 +32,91 @@ class VerificationAgent(BaseAgent):
     
     def process(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Verify customer KYC status.
+        Verify customer KYC status from CRM Server.
         
         Args:
             inputs: {"phone": str} or {"customer_id": str}
         
         Returns:
-            {kyc_verified: bool, customer_profile: dict or None, error: str (if any)}
+            {
+                kyc_verified: bool,
+                customer_profile: dict or None,
+                preapproved_offer: dict or None,
+                crm_response: dict,  # Raw API response
+                error: str (if any)
+            }
         """
         phone = inputs.get("phone")
         customer_id = inputs.get("customer_id")
         
-        # Look up customer
-        customer = None
+        # Step 1: Fetch customer from CRM
         if phone:
-            customer = lookup_customer_by_phone(phone)
-        elif customer_id:
-            customer = lookup_customer_by_id(customer_id)
-        
-        if not customer:
+            crm_response = self.crm_api.fetch_customer(phone)
+        else:
             return {
                 "kyc_verified": False,
                 "customer_profile": None,
-                "error": "Customer not found in our records"
+                "preapproved_offer": None,
+                "crm_response": None,
+                "error": "Phone number is required"
             }
         
-        # Check KYC status
-        if not customer.kyc_verified:
+        # Check CRM response
+        if not crm_response.get("success"):
+            return {
+                "kyc_verified": False,
+                "customer_profile": None,
+                "preapproved_offer": None,
+                "crm_response": crm_response,
+                "error": crm_response.get("error_message", "Customer not found in CRM")
+            }
+        
+        customer_data = crm_response.get("data", {})
+        
+        # Step 2: Check KYC status
+        kyc_status = customer_data.get("kyc_status", {})
+        if not kyc_status.get("verified"):
             return {
                 "kyc_verified": False,
                 "customer_profile": {
-                    "customer_id": customer.customer_id,
-                    "name": customer.name,
-                    "phone": customer.phone,
+                    "customer_id": customer_data.get("customer_id"),
+                    "name": customer_data.get("full_name"),
+                    "phone": customer_data.get("phone"),
                 },
+                "preapproved_offer": None,
+                "crm_response": crm_response,
                 "error": "KYC verification pending. Please complete KYC first."
             }
         
-        # Return full verified profile
+        # Step 3: Fetch pre-approved offer
+        customer_id = customer_data.get("customer_id")
+        offer_response = self.offer_api.get_preapproved_offer(customer_id)
+        
+        preapproved_offer = None
+        if offer_response.get("success"):
+            preapproved_offer = offer_response.get("data")
+        
+        # Build customer profile
+        employment = customer_data.get("employment", {})
+        address = customer_data.get("address", {})
+        
+        customer_profile = {
+            "customer_id": customer_data.get("customer_id"),
+            "name": customer_data.get("full_name"),
+            "phone": customer_data.get("phone"),
+            "email": customer_data.get("email"),
+            "address": f"{address.get('line1')}, {address.get('city')}, {address.get('state')} - {address.get('pincode')}",
+            "employer": employment.get("employer"),
+            "monthly_salary": employment.get("monthly_income"),
+            "pan_number": customer_data.get("identity", {}).get("pan_number"),
+            "kyc_verified": True,
+            "kyc_verification_date": kyc_status.get("verification_date"),
+        }
+        
         return {
             "kyc_verified": True,
-            "customer_profile": {
-                "customer_id": customer.customer_id,
-                "name": customer.name,
-                "phone": customer.phone,
-                "email": customer.email,
-                "credit_score": customer.credit_score,
-                "preapproved_limit": customer.preapproved_limit,
-                "interest_rate": customer.interest_rate,
-                "max_tenure_months": customer.max_tenure_months,
-                "employer": customer.employer,
-                "monthly_salary": customer.monthly_salary,
-            },
+            "customer_profile": customer_profile,
+            "preapproved_offer": preapproved_offer,
+            "crm_response": crm_response,
             "error": None
         }

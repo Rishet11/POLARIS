@@ -257,7 +257,7 @@ class MasterAgent:
     
     def _handle_kyc_verification(self, user_message: str) -> str:
         """
-        KYC_VERIFICATION Stage: Verify customer KYC.
+        KYC_VERIFICATION Stage: Verify customer KYC from CRM Server.
         """
         # Call Verification Agent
         input_hash = self.verification_agent.compute_input_hash({"phone": self.state.customer_phone})
@@ -279,13 +279,20 @@ class MasterAgent:
                 "Please ensure your KYC is complete and try again. Thank you!"
             )
         
-        # KYC verified - update state with profile info
+        # KYC verified - update state with profile info from CRM
         profile = result.get("customer_profile", {})
         self.state.kyc_verified = True
+        self.state.pan_number = profile.get("pan_number")
         if profile.get("monthly_salary"):
             self.state.salary = profile["monthly_salary"]
         if profile.get("employer"):
             self.state.employer = profile["employer"]
+        
+        # Update preapproved offer from Offer Mart
+        offer = result.get("preapproved_offer")
+        if offer:
+            self.state.preapproved_limit = offer.get("preapproved_limit")
+            self.state.interest_rate = offer.get("interest_rate_percent")
         
         # Move to underwriting
         self.state.stage = Stage.UNDERWRITING
@@ -293,15 +300,15 @@ class MasterAgent:
     
     def _handle_underwriting(self, user_message: str) -> str:
         """
-        UNDERWRITING Stage: Make credit decision.
+        UNDERWRITING Stage: Fetch credit score and make decision.
         """
-        # Prepare inputs for underwriting
+        # Prepare inputs for underwriting - now includes PAN for Credit Bureau lookup
         underwriting_inputs = {
             "requested_amount": self.state.requested_amount,
             "tenure_months": self.state.tenure_months,
             "preapproved_limit": self.state.preapproved_limit,
-            "credit_score": self.state.credit_score,
             "interest_rate": self.state.interest_rate,
+            "pan_number": self.state.pan_number,
             "salary": self.state.salary if self.state.salary_slip_received else None
         }
         
@@ -315,6 +322,11 @@ class MasterAgent:
         self.state.record_agent_call("UNDERWRITING_AGENT", input_hash)
         
         result = self.underwriting_agent.process(underwriting_inputs)
+        
+        # Store credit score from Credit Bureau response
+        credit_report = result.get("credit_report")
+        if credit_report:
+            self.state.credit_score = credit_report.get("credit_score")
         
         decision = result.get("decision")
         self.state.emi = result.get("emi")

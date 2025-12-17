@@ -50,6 +50,7 @@ class ConversationState:
     customer_id: Optional[str] = None
     customer_name: Optional[str] = None
     customer_phone: Optional[str] = None
+    pan_number: Optional[str] = None
     
     # Loan request details
     requested_amount: Optional[float] = None
