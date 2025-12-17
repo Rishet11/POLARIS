@@ -202,18 +202,10 @@ class MasterAgent:
                 "Have a great day!"
             )
         
-        # Call Sales Agent to extract loan requirements
+        # Call Sales Agent to extract loan requirements AND get sales pitch
         input_hash = self.sales_agent.compute_input_hash({"message": user_message})
         
-        if not self.state.can_call_agent("SALES_AGENT", input_hash):
-            # Already called with same input - ask differently
-            return (
-                "I need to understand your loan requirement better. "
-                "Could you please tell me:\n"
-                "1. **How much** do you want to borrow? (in rupees)\n"
-                "2. **How many months** would you like to repay it in?"
-            )
-        
+        # Note: We allow repeated calls here so the agent can negotiate
         self.state.record_agent_call("SALES_AGENT", input_hash)
         
         # Get conversation context
@@ -233,13 +225,17 @@ class MasterAgent:
             self.state.tenure_months = result["tenure_months"]
         if result.get("purpose"):
             self.state.purpose = result["purpose"]
+            
+        # [CRITICAL FIX: Use the generated persuasive pitch!]
+        sales_pitch = result.get("sales_pitch")
         
         # Check if we have enough information
         if not self.state.requested_amount:
-            return "What **amount** would you like to borrow? Please specify in rupees."
+            # Use the persuasive pitch if available, otherwise fallback
+            return sales_pitch if sales_pitch else "What **amount** would you like to borrow? Please specify in rupees."
         
         if not self.state.tenure_months:
-            return f"Got it, ₹{self.state.requested_amount:,.0f}. For **how many months** would you like the loan?"
+            return sales_pitch if sales_pitch else f"Got it, ₹{self.state.requested_amount:,.0f}. For **how many months** would you like the loan?"
         
         # We have both - move to KYC and process immediately
         self.state.stage = Stage.KYC_VERIFICATION
