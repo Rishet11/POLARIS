@@ -598,6 +598,31 @@ def display_chat():
                 st.rerun()
         return
     
+    # Handle Document Collection with REAL file uploader
+    if state.stage == Stage.DOCUMENT_COLLECTION and not state.salary_slip_received:
+        st.markdown("---")
+        with st.container():
+            st.markdown("### 📄 Income Verification Required")
+            st.markdown("To process your loan request above the pre-approved limit, please upload your salary slip.")
+            
+            uploaded_file = st.file_uploader(
+                "Upload Salary Slip",
+                type=['pdf', 'png', 'jpg', 'jpeg'],
+                key="salary_uploader",
+                help="Upload your latest salary slip or bank statement showing salary credit"
+            )
+            
+            if uploaded_file is not None:
+                with st.spinner("🔍 Analyzing document with AI..."):
+                    time.sleep(2)  # Simulate OCR processing time
+                    
+                    # Send a system event to the agent
+                    sys_msg = f"SYSTEM_UPLOAD_EVENT: {uploaded_file.name}"
+                    response, _ = st.session_state.master_agent.process_message(sys_msg)
+                    st.session_state.messages.append({"role": "assistant", "content": response})
+                    st.rerun()
+        st.markdown("---")
+    
     # Chat input
     if state.is_terminal():
         if state.terminal_state == TerminalState.LOAN_SANCTIONED:

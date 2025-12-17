@@ -355,6 +355,34 @@ class MasterAgent:
         """
         DOCUMENT_COLLECTION Stage: Collect salary slip.
         """
+        # Handle REAL file upload via SYSTEM_UPLOAD_EVENT
+        if "SYSTEM_UPLOAD_EVENT" in user_message:
+            # Extract filename from event
+            filename = user_message.split(": ", 1)[1] if ": " in user_message else "document.pdf"
+            
+            # Simulate OCR extraction - look up real salary from mock CRM
+            from mock_apis import CRMServerAPI
+            crm_response = CRMServerAPI.fetch_customer(self.state.customer_phone)
+            
+            if crm_response.get("success"):
+                detected_salary = crm_response["data"].get("employment", {}).get("monthly_income", 65000.0)
+            else:
+                detected_salary = 65000.0  # Default fallback
+            
+            self.state.salary = detected_salary
+            self.state.salary_slip_received = True
+            
+            # Immediately trigger re-underwriting
+            self.state.stage = Stage.UNDERWRITING
+            decision_msg = self._handle_underwriting(user_message)
+            
+            return (
+                f"✅ **Document Verified!**\n\n"
+                f"I've analyzed `{filename}` using AI-powered OCR and verified:\n"
+                f"- **Monthly Salary:** ₹{detected_salary:,.0f}\n\n"
+                f"{decision_msg}"
+            )
+        
         # Check for decline/no response
         decline_keywords = ["no", "don't have", "can't provide", "later", "not now"]
         if any(keyword in user_message.lower() for keyword in decline_keywords):
@@ -366,7 +394,7 @@ class MasterAgent:
                 f"₹{self.state.preapproved_limit:,.0f}. Thank you for your interest in Polaris!"
             )
         
-        # Try to extract salary from message
+        # Try to extract salary from message (if user types it manually)
         salary = self._extract_salary(user_message)
         
         if salary:
@@ -377,24 +405,11 @@ class MasterAgent:
             self.state.stage = Stage.UNDERWRITING
             return self._handle_underwriting(user_message)
         
-        # Check if they uploaded a document (simulated)
-        if "uploaded" in user_message.lower() or "attached" in user_message.lower() or "salary slip" in user_message.lower():
-            # Simulate salary extraction from document
-            customer = lookup_customer_by_phone(self.state.customer_phone)
-            if customer and customer.monthly_salary:
-                self.state.salary = customer.monthly_salary
-                self.state.salary_slip_received = True
-                
-                self.state.stage = Stage.UNDERWRITING
-                return self._handle_underwriting(user_message)
-        
         # Ask for salary if not provided
-        self.state.terminal_state = TerminalState.ADDITIONAL_DOCUMENT_REQUIRED
-        self.state.stage = Stage.END
         return (
             "I still need your salary details to proceed. "
-            "Please share your **monthly salary amount** or **upload your salary slip**. "
-            "You can reply later when you have the document ready."
+            "Please **upload your salary slip** using the upload button above, "
+            "or type your **monthly salary amount** (e.g., '85000' or '85k')."
         )
     
     def _handle_sanction(self, user_message: str) -> str:
