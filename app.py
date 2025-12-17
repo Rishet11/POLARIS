@@ -602,6 +602,23 @@ def display_chat():
     if state.is_terminal():
         if state.terminal_state == TerminalState.LOAN_SANCTIONED:
             st.success("🎉 Congratulations! Your loan has been sanctioned!")
+            
+            # Add download button for sanction letter
+            if state.sanction_id:
+                pdf_path = f"sanction_letters/{state.sanction_id}.pdf"
+                try:
+                    with open(pdf_path, "rb") as pdf_file:
+                        pdf_bytes = pdf_file.read()
+                        st.download_button(
+                            label="📄 Download Sanction Letter",
+                            data=pdf_bytes,
+                            file_name=f"{state.sanction_id}.pdf",
+                            mime="application/pdf",
+                            use_container_width=True
+                        )
+                except FileNotFoundError:
+                    st.info("Sanction letter is being generated...")
+                    
         elif state.terminal_state == TerminalState.LOAN_REJECTED:
             st.error("Your application could not be approved at this time.")
         else:
