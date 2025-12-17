@@ -121,6 +121,92 @@ _CRM_DATABASE: Dict[str, CRMCustomerRecord] = {
         monthly_income=95000.0,
         account_status="ACTIVE"
     ),
+    # NEW CUSTOMERS (6-10)
+    "9876543215": CRMCustomerRecord(
+        customer_id="CUST006",
+        full_name="Arjun Das",
+        phone="9876543215",
+        email="arjun.das@email.com",
+        address="101, Sector 15",
+        city="Noida",
+        state="Uttar Pradesh",
+        pincode="201301",
+        pan_number="DASAJ1234A",
+        aadhar_last_four="1111",
+        kyc_verified=True,
+        kyc_verification_date="2024-09-01",
+        employer="Swiggy",
+        monthly_income=35000.0,
+        account_status="ACTIVE"
+    ),
+    "9876543216": CRMCustomerRecord(
+        customer_id="CUST007",
+        full_name="Meera Iyer",
+        phone="9876543216",
+        email="meera.iyer@email.com",
+        address="Tower B, Prestige Towers",
+        city="Chennai",
+        state="Tamil Nadu",
+        pincode="600001",
+        pan_number="IYERM5678B",
+        aadhar_last_four="2222",
+        kyc_verified=True,
+        kyc_verification_date="2024-10-15",
+        employer="Google",
+        monthly_income=250000.0,
+        account_status="ACTIVE"
+    ),
+    "9876543217": CRMCustomerRecord(
+        customer_id="CUST008",
+        full_name="Zainab Khan",
+        phone="9876543217",
+        email="zainab.khan@email.com",
+        address="22, Old City",
+        city="Lucknow",
+        state="Uttar Pradesh",
+        pincode="226001",
+        pan_number="KHANZ9012C",
+        aadhar_last_four="3333",
+        kyc_verified=True,
+        kyc_verification_date="2024-04-20",
+        employer="Freelance",
+        monthly_income=40000.0,
+        account_status="ACTIVE"
+    ),
+    "9876543218": CRMCustomerRecord(
+        customer_id="CUST009",
+        full_name="Chris D'Souza",
+        phone="9876543218",
+        email="chris.dsouza@email.com",
+        address="45, Bandra West",
+        city="Mumbai",
+        state="Maharashtra",
+        pincode="400050",
+        pan_number="DSOUC3456D",
+        aadhar_last_four="4444",
+        kyc_verified=True,
+        kyc_verification_date="2024-07-25",
+        employer="StartUp Inc",
+        monthly_income=70000.0,
+        account_status="ACTIVE"
+    ),
+    "9876543219": CRMCustomerRecord(
+        customer_id="CUST010",
+        full_name="Pooja Hegde",
+        phone="9876543219",
+        email="pooja.hegde@email.com",
+        address="88, Koramangala",
+        city="Bangalore",
+        state="Karnataka",
+        pincode="560034",
+        pan_number="HEGDP7890E",
+        aadhar_last_four="5555",
+        kyc_verified=True,
+        kyc_verification_date="2024-08-10",
+        employer="HDFC Bank",
+        monthly_income=90000.0,
+        account_status="ACTIVE"
+    ),
 }
 
 
@@ -296,6 +382,62 @@ _CREDIT_BUREAU_DATABASE: Dict[str, CreditBureauRecord] = {
         recent_inquiries=2,
         delinquent_accounts=0
     ),
+    # NEW CREDIT RECORDS (6-10)
+    "DASAJ1234A": CreditBureauRecord(  # Arjun Das
+        pan_number="DASAJ1234A",
+        credit_score=710,
+        active_loans=1,
+        total_outstanding=50000.0,
+        payment_history_score=75,
+        credit_utilization=45.0,
+        oldest_account_age_months=24,
+        recent_inquiries=4,
+        delinquent_accounts=0
+    ),
+    "IYERM5678B": CreditBureauRecord(  # Meera Iyer - EXCELLENT
+        pan_number="IYERM5678B",
+        credit_score=850,
+        active_loans=0,
+        total_outstanding=0.0,
+        payment_history_score=100,
+        credit_utilization=10.0,
+        oldest_account_age_months=144,
+        recent_inquiries=0,
+        delinquent_accounts=0
+    ),
+    "KHANZ9012C": CreditBureauRecord(  # Zainab Khan - BELOW THRESHOLD
+        pan_number="KHANZ9012C",
+        credit_score=690,  # Below 700
+        active_loans=3,
+        total_outstanding=200000.0,
+        payment_history_score=60,
+        credit_utilization=70.0,
+        oldest_account_age_months=30,
+        recent_inquiries=6,
+        delinquent_accounts=1
+    ),
+    "DSOUC3456D": CreditBureauRecord(  # Chris D'Souza
+        pan_number="DSOUC3456D",
+        credit_score=740,
+        active_loans=1,
+        total_outstanding=150000.0,
+        payment_history_score=85,
+        credit_utilization=35.0,
+        oldest_account_age_months=42,
+        recent_inquiries=2,
+        delinquent_accounts=0
+    ),
+    "HEGDP7890E": CreditBureauRecord(  # Pooja Hegde
+        pan_number="HEGDP7890E",
+        credit_score=790,
+        active_loans=1,
+        total_outstanding=80000.0,
+        payment_history_score=94,
+        credit_utilization=18.0,
+        oldest_account_age_months=60,
+        recent_inquiries=1,
+        delinquent_accounts=0
+    ),
 }
 
 
@@ -421,6 +563,47 @@ _OFFER_DATABASE: Dict[str, PreApprovedOffer] = {
         max_tenure_months=48,
         offer_valid_until="2025-03-31",
         offer_type="STANDARD"
+    ),
+    # NEW OFFERS (6-10)
+    "CUST006": PreApprovedOffer(
+        customer_id="CUST006",
+        preapproved_limit=200000.0,
+        interest_rate=14.5,
+        max_tenure_months=36,
+        offer_valid_until="2025-02-28",
+        offer_type="BASIC"
+    ),
+    "CUST007": PreApprovedOffer(
+        customer_id="CUST007",
+        preapproved_limit=1000000.0,
+        interest_rate=10.5,
+        max_tenure_months=60,
+        offer_valid_until="2025-06-30",
+        offer_type="PLATINUM"
+    ),
+    "CUST008": PreApprovedOffer(  # Low credit - no offer
+        customer_id="CUST008",
+        preapproved_limit=0.0,
+        interest_rate=18.0,
+        max_tenure_months=24,
+        offer_valid_until="2025-01-31",
+        offer_type="NONE"
+    ),
+    "CUST009": PreApprovedOffer(
+        customer_id="CUST009",
+        preapproved_limit=450000.0,
+        interest_rate=13.0,
+        max_tenure_months=48,
+        offer_valid_until="2025-04-30",
+        offer_type="STANDARD"
+    ),
+    "CUST010": PreApprovedOffer(
+        customer_id="CUST010",
+        preapproved_limit=600000.0,
+        interest_rate=12.0,
+        max_tenure_months=60,
+        offer_valid_until="2025-05-31",
+        offer_type="PREMIUM"
     ),
 }
 
