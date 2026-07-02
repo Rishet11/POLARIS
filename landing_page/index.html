@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POLARIS — AI Loan Sales, Governed by Code</title>
+  <meta name="description" content="POLARIS: A multi-agent AI loan sales system with deterministic FSM governance. 4 specialized agents, 9 states, 4 underwriting rules, 0 hallucinations. Built by Rishet Mehra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #e94560; --cyan: #00d9ff; --green: #00ff88;
+      --bg: #08080f; --bg2: #0f0f1a; --bg3: #1a1a2e;
+      --glass: rgba(255,255,255,0.04); --glass-border: rgba(255,255,255,0.08);
+      --text: #f0f0f8; --muted: rgba(255,255,255,0.5);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 48px; background: rgba(8,8,15,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-logo { font-size: 22px; font-weight: 800; background: linear-gradient(90deg, var(--red), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { padding: 8px 20px; border-radius: 8px; background: linear-gradient(135deg, var(--red), #ff6b6b); color: #fff !important; font-weight: 600 !important; }
+
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 120px 24px 80px; text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(233,69,96,0.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,217,255,0.08) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px;
+      background: rgba(233,69,96,0.1); border: 1px solid rgba(233,69,96,0.3);
+      font-size: 12px; font-weight: 600; color: var(--red); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(233,69,96,0.4)} 50%{opacity:0.7;box-shadow:0 0 0 6px rgba(233,69,96,0)} }
+    h1 { font-size: clamp(40px,6vw,80px); font-weight: 800; line-height: 1.08; letter-spacing: -2px; margin-bottom: 20px; max-width: 900px; }
+    .h1-red { background: linear-gradient(90deg, var(--red), #ff9a9a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .h1-cyan { background: linear-gradient(90deg, var(--cyan), #88ffdd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 600px; line-height: 1.7; margin-bottom: 40px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--red), #c73652); color: #fff; font-weight: 700; font-size: 15px;
+      text-decoration: none; box-shadow: 0 8px 30px rgba(233,69,96,0.35); transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(233,69,96,0.5); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px;
+      background: var(--glass); border: 1px solid var(--glass-border); color: var(--text); font-weight: 600; font-size: 15px;
+      text-decoration: none; backdrop-filter: blur(10px); transition: background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+
+    .stats-strip {
+      display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
+      background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px;
+      max-width: 900px; margin: 64px auto 0; overflow: hidden;
+    }
+    .stat-item { flex: 1; min-width: 140px; padding: 28px 24px; text-align: center; border-right: 1px solid var(--glass-border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 36px; font-weight: 800; background: linear-gradient(90deg, var(--cyan), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    h2 { font-size: clamp(28px,4vw,48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
+    .section-desc { font-size: 17px; color: var(--muted); max-width: 600px; line-height: 1.7; }
+
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; margin-top: 48px; }
+    .problem-card {
+      padding: 28px; border-radius: 16px; background: var(--glass); border: 1px solid var(--glass-border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .problem-card:hover { border-color: rgba(233,69,96,0.3); transform: translateY(-4px); }
+    .problem-card .icon { font-size: 32px; margin-bottom: 16px; }
+    .problem-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .problem-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    .fsm-section { padding: 0; background: linear-gradient(180deg, transparent, rgba(0,217,255,0.02), transparent); }
+    .fsm-container { max-width: 1100px; margin: 48px auto 0; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 24px; padding: 48px; }
+    .fsm-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; width: 100%; margin-bottom: 16px; }
+    .fsm-node {
+      display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 16px;
+      border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+      min-width: 110px; text-align: center; transition: all 0.3s; cursor: default;
+    }
+    .fsm-node:hover { border-color: var(--cyan); background: rgba(0,217,255,0.07); transform: scale(1.05); }
+    .fsm-node .node-icon { font-size: 20px; }
+    .fsm-node .node-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .fsm-node .node-num { font-size: 10px; color: var(--muted); }
+    .fsm-arrow { font-size: 18px; color: var(--muted); padding: 0 4px; flex-shrink: 0; }
+    .fsm-node.terminal-ok { border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.06); }
+    .fsm-node.terminal-ok .node-label { color: var(--green); }
+    .fsm-node.terminal-bad { border-color: rgba(233,69,96,0.4); background: rgba(233,69,96,0.06); }
+    .fsm-node.terminal-bad .node-label { color: var(--red); }
+
+    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; margin-top: 48px; }
+    .agent-card {
+      padding: 28px; border-radius: 16px; background: var(--glass); border: 1px solid var(--glass-border);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .agent-card:hover { transform: translateY(-6px); }
+    .agent-card:nth-child(1):hover { border-color: rgba(233,69,96,0.4); }
+    .agent-card:nth-child(2):hover { border-color: rgba(0,217,255,0.4); }
+    .agent-card:nth-child(3):hover { border-color: rgba(255,200,50,0.4); }
+    .agent-card:nth-child(4):hover { border-color: rgba(0,255,136,0.4); }
+    .agent-icon { font-size: 36px; margin-bottom: 16px; }
+    .agent-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--muted); }
+    .agent-role { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .agent-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .agent-tag { display: inline-block; margin-top: 16px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .tag-gemini { background: rgba(233,69,96,0.15); color: var(--red); }
+    .tag-rule { background: rgba(255,200,50,0.15); color: #ffc832; }
+    .tag-api { background: rgba(0,217,255,0.15); color: var(--cyan); }
+    .tag-pdf { background: rgba(0,255,136,0.15); color: var(--green); }
+
+    .code-container { max-width: 900px; margin: 0 auto 24px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
+    .code-header { background: rgba(255,255,255,0.05); padding: 12px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--glass-border); }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-dot:nth-child(1){background:#ff5f57} .code-dot:nth-child(2){background:#febc2e} .code-dot:nth-child(3){background:#28c840}
+    .code-filename { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); margin-left: 8px; }
+    pre { background: #0d0d1a; padding: 28px 32px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.8; overflow-x: auto; color: #c9d1d9; }
+    .kw{color:#ff7b72} .fn{color:#d2a8ff} .str{color:#a5d6ff} .cm{color:#8b949e} .num{color:#f2cc60}
+
+    .rules-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-top: 48px; }
+    .rule-card { padding: 24px; border-radius: 14px; background: var(--glass); border: 1px solid var(--glass-border); display: flex; gap: 16px; align-items: flex-start; }
+    .rule-num { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
+    .rule-num.reject { background: rgba(233,69,96,0.2); color: var(--red); }
+    .rule-num.approve { background: rgba(0,255,136,0.15); color: var(--green); }
+    .rule-num.doc { background: rgba(255,200,50,0.15); color: #ffc832; }
+    .rule-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .rule-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    .pitch-section { padding: 80px 24px; background: linear-gradient(135deg, rgba(233,69,96,0.06), rgba(0,217,255,0.04)); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+    .pitch-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    blockquote { font-size: 17px; line-height: 1.9; color: var(--text); font-style: italic; margin: 24px 0; padding: 32px; border-radius: 16px; background: var(--glass); border: 1px solid var(--glass-border); border-left: 4px solid var(--red); text-align: left; }
+
+    .cta-section { padding: 120px 24px; text-align: center; background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0,217,255,0.08) 0%, transparent 70%); }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-section h2 { margin-bottom: 16px; }
+    .cta-section p { color: var(--muted); margin-bottom: 40px; font-size: 17px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    footer { padding: 32px 48px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:768px){
+      nav{padding:16px 20px} .nav-links{display:none}
+      .stats-strip{flex-direction:column} .stat-item{border-right:none;border-bottom:1px solid var(--glass-border)}
+      .stat-item:last-child{border-bottom:none} footer{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">POLARIS</div>
+  <div class="nav-links">
+    <a href="#problem">Problem</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#agents">Agents</a>
+    <a href="#underwriting">Rules</a>
+    <a href="https://github.com/Rishet11/POLARIS" class="nav-cta">View on GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Multi-Agent &nbsp;·&nbsp; FSM Governed &nbsp;·&nbsp; Production-Grade</div>
+  <h1>AI Loan Sales,<br/><span class="h1-red">Governed</span> by <span class="h1-cyan">Code</span></h1>
+  <p class="hero-sub">POLARIS replaces fragile LLM conversation loops with a deterministic finite-state machine. 4 specialized agents. 9 states. 4 underwriting rules. Zero hallucinations.</p>
+  <div class="hero-ctas">
+    <a href="https://github.com/Rishet11/POLARIS" class="btn-primary">⭐ View on GitHub</a>
+    <a href="#architecture" class="btn-secondary">Explore Architecture →</a>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-item"><div class="stat-num" data-target="9">0</div><div class="stat-label">FSM States</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-label">Specialized Agents</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-label">Underwriting Rules</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="0">0</div><div class="stat-label">Hallucinations</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="6">0</div><div class="stat-label">Max Agent Calls</div></div>
+  </div>
+</div>
+
+<section id="problem">
+  <div class="section-tag">The Problem</div>
+  <h2>Why raw LLMs fail in regulated workflows</h2>
+  <p class="section-desc">Most AI chatbots in finance are built on raw LLM loops. The model decides what to do next — which means it can hallucinate, loop, or skip legally required steps.</p>
+  <div class="problem-grid fade-up">
+    <div class="problem-card"><div class="icon">🔄</div><h3>Infinite Loops</h3><p>Without hard exit conditions, LLM agents repeat questions, re-enter stages, and consume quota indefinitely.</p></div>
+    <div class="problem-card"><div class="icon">🎲</div><h3>Non-Deterministic Decisions</h3><p>A loan approval is a legal commitment. LLMs with temperature > 0 can approve the same application differently on different runs.</p></div>
+    <div class="problem-card"><div class="icon">⚠️</div><h3>Stage Skipping</h3><p>LLMs can be persuaded to skip KYC or jump to approval. In regulated lending, skipping a mandatory step is a compliance violation.</p></div>
+    <div class="problem-card"><div class="icon">💸</div><h3>Quota Exhaustion</h3><p>Without call limits, a single stuck conversation can burn thousands of tokens unpredictably in production.</p></div>
+  </div>
+</section>
+
+<div class="fsm-section" id="architecture">
+  <section>
+    <div class="section-tag">The Solution</div>
+    <h2>A finite-state machine that LLMs obey</h2>
+    <p class="section-desc">POLARIS wraps every agent call inside a 9-state FSM. The machine decides transitions — the LLM only generates language within a bounded stage.</p>
+  </section>
+  <div class="fsm-container fade-up" style="max-width:1100px;margin:0 auto 80px;padding:40px 24px;">
+    <div class="fsm-row">
+      <div class="fsm-node"><div class="node-icon">👋</div><div class="node-label">INTRO</div><div class="node-num">State 1</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">📱</div><div class="node-label">NEED DISCOVERY</div><div class="node-num">State 2</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">💬</div><div class="node-label">OFFER PRESENT</div><div class="node-num">State 3</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">🔍</div><div class="node-label">KYC VERIFY</div><div class="node-num">State 4</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">📊</div><div class="node-label">UNDERWRITING</div><div class="node-num">State 5</div></div>
+    </div>
+    <div class="fsm-row" style="margin-top:16px">
+      <div class="fsm-node"><div class="node-icon">📄</div><div class="node-label">DOCUMENT COLLECT</div><div class="node-num">State 6</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node terminal-ok"><div class="node-icon">🎊</div><div class="node-label">SANCTION</div><div class="node-num">Terminal ✅</div></div>
+      <div class="fsm-arrow" style="margin:0 16px">|</div>
+      <div class="fsm-node terminal-bad"><div class="node-icon">❌</div><div class="node-label">REJECTION</div><div class="node-num">Terminal ❌</div></div>
+    </div>
+    <div style="margin-top:32px;padding:16px 20px;background:rgba(0,0,0,0.3);border-radius:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);line-height:2;text-align:center">
+      Max 6 agent calls/session &nbsp;·&nbsp; Same {agent:input_hash} blocked &nbsp;·&nbsp; Terminal state is irreversible &nbsp;·&nbsp; Anti-loop: 3 independent layers
+    </div>
+  </div>
+</div>
+
+<section id="agents">
+  <div class="section-tag">Agent Architecture</div>
+  <h2>4 specialized workers, one orchestrator</h2>
+  <p class="section-desc">Each agent has a single responsibility and a single trigger. The Master Agent cannot skip or reorder them.</p>
+  <div class="agents-grid fade-up">
+    <div class="agent-card"><div class="agent-icon">🛒</div><div class="agent-name">Sales Agent</div><div class="agent-role">Loan Discovery</div><div class="agent-desc">Extracts amount, tenure, purpose from natural language. Generates personalized persuasive pitches to guide customers toward closing.</div><span class="agent-tag tag-gemini">Gemini 2.0 Flash · temp=0.1</span></div>
+    <div class="agent-card"><div class="agent-icon">🔍</div><div class="agent-name">Verification Agent</div><div class="agent-role">KYC Check</div><div class="agent-desc">Calls CRM server via GET /customers/lookup?phone. Validates PAN, Aadhaar, KYC status. Cannot be bypassed regardless of credit score.</div><span class="agent-tag tag-api">CRM Server API</span></div>
+    <div class="agent-card"><div class="agent-icon">📊</div><div class="agent-name">Underwriting Agent</div><div class="agent-role">Credit Decision</div><div class="agent-desc">Fetches credit score from Credit Bureau (mock CIBIL). Applies 4 deterministic rules. Zero LLM involvement — pure Python logic.</div><span class="agent-tag tag-rule">Rule-Based · No LLM</span></div>
+    <div class="agent-card"><div class="agent-icon">📋</div><div class="agent-name">Sanction Agent</div><div class="agent-role">Letter Generation</div><div class="agent-desc">Triggers only on APPROVED. Generates formal PDF sanction letter with unique ID, loan details, T&C, and authorized signatory.</div><span class="agent-tag tag-pdf">fpdf2 · PDF Generated</span></div>
+  </div>
+</section>
+
+<div style="padding:0 24px 100px;max-width:1100px;margin:0 auto">
+  <div class="section-tag">Code Quality</div>
+  <h2 style="margin-bottom:48px">Anti-loop safeguards: 3 independent layers</h2>
+  <div class="code-container fade-up">
+    <div class="code-header"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div><div class="code-filename">state.py · ConversationState</div></div>
+    <pre><span class="cm"># Layer 1: Terminal state lock — once ended, always ended</span>
+<span class="kw">def</span> <span class="fn">is_terminal</span>(self) -> <span class="str">bool</span>:
+    <span class="kw">return</span> self.terminal_state <span class="kw">is not None</span>
+
+<span class="cm"># Layer 2: Max call quota (6 calls per session max)</span>
+<span class="kw">if</span> self.state.total_agent_calls >= MAX_AGENT_CALLS:
+    self.state.terminal_state = TerminalState.<span class="str">CUSTOMER_DROPPED</span>
+    <span class="kw">return</span> <span class="str">"Maximum agent calls exceeded. Conversation ended."</span>
+
+<span class="cm"># Layer 3: Duplicate call blocking via input hash</span>
+<span class="kw">def</span> <span class="fn">can_call_agent</span>(self, agent_name: <span class="str">str</span>, input_hash: <span class="str">str</span>) -> <span class="str">bool</span>:
+    call_signature = <span class="fn">f</span><span class="str">"{agent_name}:{input_hash}"</span>
+    <span class="kw">if</span> call_signature <span class="kw">in</span> self.agent_call_history:
+        <span class="kw">return False</span>  <span class="cm"># Same agent + same inputs = blocked forever</span>
+    <span class="kw">return True</span></pre>
+  </div>
+  <div class="code-container fade-up">
+    <div class="code-header"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div><div class="code-filename">underwriting_agent.py · 4 Deterministic Rules</div></div>
+    <pre><span class="cm"># Rule 1: Credit score gate (fetched live from Credit Bureau)</span>
+<span class="kw">if</span> credit_score < <span class="num">700</span>:
+    <span class="kw">return</span> {<span class="str">"decision"</span>: <span class="str">"REJECTED"</span>, <span class="str">"reason"</span>: <span class="fn">f</span><span class="str">"Score {credit_score}/900 below minimum"</span>}
+
+<span class="cm"># Rule 2: Instant approval within preapproved limit</span>
+<span class="kw">if</span> requested_amount <= preapproved_limit:
+    <span class="kw">return</span> {<span class="str">"decision"</span>: <span class="str">"APPROVED"</span>, <span class="str">"emi"</span>: calculate_emi(amount, rate, tenure)}
+
+<span class="cm"># Rule 3: Salary slip required (1x to 2x limit zone)</span>
+<span class="kw">if</span> requested_amount <= preapproved_limit * <span class="num">2</span>:
+    <span class="kw">if</span> salary <span class="kw">and</span> calculate_emi(amount, rate, tenure) <= salary * <span class="num">0.5</span>:
+        <span class="kw">return</span> {<span class="str">"decision"</span>: <span class="str">"APPROVED"</span>}
+    <span class="kw">return</span> {<span class="str">"decision"</span>: <span class="str">"NEED_SALARY_SLIP"</span>}
+
+<span class="cm"># Rule 4: Hard reject above 2x limit — no exceptions</span>
+<span class="kw">return</span> {<span class="str">"decision"</span>: <span class="str">"REJECTED"</span>, <span class="str">"reason"</span>: <span class="str">"Exceeds 2x eligible limit"</span>}</pre>
+  </div>
+</div>
+
+<section id="underwriting">
+  <div class="section-tag">Underwriting Engine</div>
+  <h2>4 rules. Pure code. No LLM.</h2>
+  <p class="section-desc">The most critical decision in a loan — approve or reject — is never left to an LLM. Every rule is deterministic, explainable, and auditable.</p>
+  <div class="rules-grid fade-up">
+    <div class="rule-card"><div class="rule-num reject">1</div><div><div class="rule-title">Credit Score Gate</div><div class="rule-desc">Reject immediately if credit score &lt; 700/900. Checked against live Credit Bureau API, not cached score.</div></div></div>
+    <div class="rule-card"><div class="rule-num approve">2</div><div><div class="rule-title">Instant Approval</div><div class="rule-desc">Approve if requested amount ≤ preapproved limit. EMI calculated with reducing balance method.</div></div></div>
+    <div class="rule-card"><div class="rule-num doc">3</div><div><div class="rule-title">Income Verification</div><div class="rule-desc">If amount ≤ 2× limit, require salary slip. Approve only if EMI ≤ 50% of verified monthly salary.</div></div></div>
+    <div class="rule-card"><div class="rule-num reject">4</div><div><div class="rule-title">Hard Limit Reject</div><div class="rule-desc">Reject unconditionally if amount exceeds 2× preapproved limit. No exceptions, no negotiations.</div></div></div>
+  </div>
+</section>
+
+<div class="pitch-section">
+  <div class="pitch-inner">
+    <div class="section-tag" style="text-align:center;margin-bottom:8px">One Paragraph Pitch</div>
+    <h2 style="text-align:center;margin-bottom:0">The architecture pattern for regulated AI</h2>
+    <blockquote>
+      POLARIS is a multi-agent loan sales system built to demonstrate a production architecture pattern that most AI companies are still struggling to implement: deterministic FSM governance over LLM agents. A Master Agent orchestrates four specialized Worker Agents through a 9-state finite-state machine with three independent anti-loop mechanisms. The underwriting engine applies four hard rules with zero LLM involvement, calculates EMIs using the reducing balance method, and generates a formal PDF sanction letter on approval. The mock API layer simulates CRM, credit bureau, and offer mart endpoints with 10 test customers spanning approved, rejected, KYC-failed, and low-credit scenarios. The full conversation cannot hallucinate an approval, cannot skip KYC, and cannot loop — a pattern that translates directly to any regulated AI workflow.
+    </blockquote>
+    <p style="color:var(--muted);font-size:14px">— Rishet Mehra, builder</p>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="section-tag" style="text-align:center">Built by</div>
+    <h2>Rishet Mehra</h2>
+    <p>Pre-final year, Math &amp; Computing @ DTU · Rank 27/16,000+ Google PromptWars 2026 · 5x national hackathon winner</p>
+    <div class="cta-btns">
+      <a href="https://github.com/Rishet11/POLARIS" class="btn-primary">⭐ Star on GitHub</a>
+      <a href="https://github.com/Rishet11" class="btn-secondary">All Projects →</a>
+      <a href="mailto:rishetmehra11@gmail.com" class="btn-secondary">📧 Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text">POLARIS — Built for hackathon · Production-grade architecture · Rishet Mehra 2026</div>
+  <div class="footer-links">
+    <a href="https://github.com/Rishet11/POLARIS">GitHub</a>
+    <a href="https://linkedin.com/in/rishetmehra">LinkedIn</a>
+    <a href="mailto:rishetmehra11@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Counter animation
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const target = parseInt(counter.dataset.target);
+      if (target === 0) { counter.textContent = '0'; return; }
+      let current = 0; const inc = target / 40;
+      const t = setInterval(() => {
+        current += inc;
+        if (current >= target) { counter.textContent = target; clearInterval(t); }
+        else counter.textContent = Math.ceil(current);
+      }, 30);
+    });
+  };
+  setTimeout(animateCounters, 500);
+
+  // FSM node cycle animation
+  const nodes = document.querySelectorAll('.fsm-node');
+  let idx = 0;
+  setInterval(() => {
+    nodes.forEach(n => { n.style.boxShadow = ''; });
+    if (nodes[idx]) nodes[idx].style.boxShadow = '0 0 20px rgba(0,217,255,0.3)';
+    idx = (idx + 1) % nodes.length;
+  }, 1200);
+</script>
+</body>
+</html>
