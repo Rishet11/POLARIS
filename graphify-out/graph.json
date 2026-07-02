@@ -1,0 +1,5988 @@
+{
+  "nodes": [
+    {
+      "id": "agents_init",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "agents/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_init_rationale_1",
+      "label": "POLARIS Worker Agents All worker agents for the loan sales system.",
+      "file_type": "rationale",
+      "source_file": "agents/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent",
+      "label": "base_agent.py",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent",
+      "label": "BaseAgent",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "abc",
+      "label": "ABC",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_get_system_prompt",
+      "label": ".get_system_prompt()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_compute_input_hash",
+      "label": ".compute_input_hash()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_call_llm",
+      "label": ".call_llm()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_parse_json_response",
+      "label": ".parse_json_response()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L46",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_baseagent_validate_output",
+      "label": ".validate_output()",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_1",
+      "label": "POLARIS Base Agent Abstract base class for all worker agents.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_14",
+      "label": "Base class for all worker agents.     Provides Gemini integration and structured",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_25",
+      "label": "Return the system prompt for this agent.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_30",
+      "label": "Process inputs and return structured output.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_34",
+      "label": "Compute a hash of inputs for anti-loop tracking.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_39",
+      "label": "Call Gemini LLM with the given prompt.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_47",
+      "label": "Parse JSON from LLM response.         Handles markdown code blocks and extracts",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_rationale_75",
+      "label": "Validate that all required fields are present in output.",
+      "file_type": "rationale",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent",
+      "label": "sales_agent.py",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_salesagent",
+      "label": "SalesAgent",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "degree": 1
+    },
+    {
+      "id": "agents_sales_agent_salesagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_salesagent_get_system_prompt",
+      "label": ".get_system_prompt()",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_salesagent_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L94",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L94",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_rationale_1",
+      "label": "POLARIS Sales Agent Persuasive loan sales with requirement extraction. \"Wolf of",
+      "file_type": "rationale",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_rationale_12",
+      "label": "Sales Agent for persuading customers and extracting loan requirements.",
+      "file_type": "rationale",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_rationale_95",
+      "label": "Persuade customer and extract loan requirements.                  Args:",
+      "file_type": "rationale",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent",
+      "label": "sanction_agent.py",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_sanctionagent",
+      "label": "SanctionAgent",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "degree": 1
+    },
+    {
+      "id": "agents_sanction_agent_sanctionagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_sanctionagent_get_system_prompt",
+      "label": ".get_system_prompt()",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_sanctionagent_generate_sanction_id",
+      "label": ".generate_sanction_id()",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_sanctionagent_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_rationale_1",
+      "label": "POLARIS Sanction Letter Generator Generates sanction letters for approved loans.",
+      "file_type": "rationale",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_rationale_21",
+      "label": "Sanction Letter Generator Agent.          Trigger: Only when decision == APPROVE",
+      "file_type": "rationale",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_rationale_40",
+      "label": "Generate unique sanction ID.",
+      "file_type": "rationale",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L40",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_rationale_46",
+      "label": "Generate sanction letter.                  Args:             inputs: {",
+      "file_type": "rationale",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L46",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent",
+      "label": "underwriting_agent.py",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_underwritingagent",
+      "label": "UnderwritingAgent",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "degree": 1
+    },
+    {
+      "id": "agents_underwriting_agent_underwritingagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_underwritingagent_get_system_prompt",
+      "label": ".get_system_prompt()",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L40",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_underwritingagent_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_underwritingagent_calculate_max_loan",
+      "label": "._calculate_max_loan()",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L190",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_rationale_1",
+      "label": "POLARIS Underwriting Agent Fetches credit score from Credit Bureau and validates",
+      "file_type": "rationale",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_rationale_12",
+      "label": "Underwriting Agent for credit decisions.          Responsibilities:     - Fetch",
+      "file_type": "rationale",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_rationale_45",
+      "label": "Make underwriting decision based on credit bureau data and rules.",
+      "file_type": "rationale",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_rationale_191",
+      "label": "Calculate maximum loan amount for given EMI.",
+      "file_type": "rationale",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent",
+      "label": "verification_agent.py",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_verificationagent",
+      "label": "VerificationAgent",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "degree": 1
+    },
+    {
+      "id": "agents_verification_agent_verificationagent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_verificationagent_get_system_prompt",
+      "label": ".get_system_prompt()",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_verificationagent_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_rationale_1",
+      "label": "POLARIS Verification Agent Confirms KYC details from the CRM Server.",
+      "file_type": "rationale",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_rationale_12",
+      "label": "Verification Agent for KYC verification.          Responsibilities:     - Fetch",
+      "file_type": "rationale",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_rationale_34",
+      "label": "Verify customer KYC status from CRM Server.                  Args:             i",
+      "file_type": "rationale",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app",
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_get_status_badge",
+      "label": "get_status_badge()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L393",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_get_progress_steps",
+      "label": "get_progress_steps()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L407",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_initialize_session",
+      "label": "initialize_session()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L447",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_display_sidebar",
+      "label": "display_sidebar()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L463",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_display_chat",
+      "label": "display_chat()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L563",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L682",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_1",
+      "label": "POLARIS - AI-Driven Personal Loan Sales System Premium Streamlit Chat Interface",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_394",
+      "label": "Get HTML badge for terminal state.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L394",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_408",
+      "label": "Generate progress steps HTML.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L408",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_448",
+      "label": "Initialize session state.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L448",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_464",
+      "label": "Display sidebar with state information.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L464",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_564",
+      "label": "Display chat interface.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L564",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "app_rationale_683",
+      "label": "Main application entry point.",
+      "file_type": "rationale",
+      "source_file": "app.py",
+      "source_location": "L683",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "config",
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "config_get_model",
+      "label": "get_model()",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "config_rationale_1",
+      "label": "POLARIS Configuration Module Handles Gemini API setup and global configuration.",
+      "file_type": "rationale",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "config_rationale_43",
+      "label": "Get configured Gemini model instance.",
+      "file_type": "rationale",
+      "source_file": "config.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent",
+      "label": "Master Agent",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent",
+      "label": "MasterAgent",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "degree": 6
+    },
+    {
+      "id": "master_agent_masteragent_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_initialize",
+      "label": ".initialize()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "conversationstate",
+      "label": "ConversationState",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "degree": 1
+    },
+    {
+      "id": "master_agent_masteragent_get_state",
+      "label": ".get_state()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_check_safeguards",
+      "label": "._check_safeguards()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_generate_response",
+      "label": "._generate_response()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_process_message",
+      "label": ".process_message()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_route_to_handler",
+      "label": "._route_to_handler()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_intro",
+      "label": "._handle_intro()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L114",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_need_discovery",
+      "label": "._handle_need_discovery()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L135",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_offer_presentation",
+      "label": "._handle_offer_presentation()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L190",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_kyc_verification",
+      "label": "._handle_kyc_verification()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L254",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_underwriting",
+      "label": "._handle_underwriting()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L297",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_document_collection",
+      "label": "._handle_document_collection()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L350",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_sanction",
+      "label": "._handle_sanction()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L411",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_rejection",
+      "label": "._handle_rejection()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L447",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_handle_end",
+      "label": "._handle_end()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L466",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_extract_phone_number",
+      "label": "._extract_phone_number()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L481",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_masteragent_extract_salary",
+      "label": "._extract_salary()",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": "L493",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_1",
+      "label": "POLARIS Master Agent Main orchestrator implementing the finite-state machine. Co",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_15",
+      "label": "Master Agent - The central orchestrator.          Responsibilities:     - Contro",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_39",
+      "label": "Initialize a new conversation.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_44",
+      "label": "Get current conversation state.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_50",
+      "label": "Check anti-loop safeguards.         Returns error message if safeguard triggered",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_65",
+      "label": "Generate a response using Gemini.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_71",
+      "label": "Process a user message and return response.         This is the main entry point",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_98",
+      "label": "Route message to appropriate stage handler.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_115",
+      "label": "INTRO Stage: Greet and ask for interest.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_136",
+      "label": "NEED_DISCOVERY Stage: Get phone and loan requirements.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L136",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_191",
+      "label": "OFFER_PRESENTATION Stage: Get loan amount and tenure.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_255",
+      "label": "KYC_VERIFICATION Stage: Verify customer KYC from CRM Server.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L255",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_298",
+      "label": "UNDERWRITING Stage: Fetch credit score and make decision.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L298",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_351",
+      "label": "DOCUMENT_COLLECTION Stage: Collect salary slip.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L351",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_412",
+      "label": "SANCTION Stage: Generate sanction letter.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L412",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_448",
+      "label": "REJECTION Stage: Explain rejection politely.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L448",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_467",
+      "label": "END Stage: Conversation is over.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L467",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_482",
+      "label": "Extract 10-digit phone number from text.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L482",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "master_agent_rationale_494",
+      "label": "Extract salary amount from text.",
+      "file_type": "rationale",
+      "source_file": "master_agent.py",
+      "source_location": "L494",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis",
+      "label": "mock_apis.py",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_crmcustomerrecord",
+      "label": "CRMCustomerRecord",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L18",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_crmserverapi",
+      "label": "CRMServerAPI",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L213",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_crmserverapi_fetch_customer",
+      "label": ".fetch_customer()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L222",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_py_any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L222",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_crmserverapi_verify_kyc",
+      "label": ".verify_kyc()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L279",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_creditbureaurecord",
+      "label": "CreditBureauRecord",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L315",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_creditbureauapi",
+      "label": "CreditBureauAPI",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L444",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_creditbureauapi_fetch_credit_score",
+      "label": ".fetch_credit_score()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L453",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_get_score_rating",
+      "label": "_get_score_rating()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L497",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_preapprovedoffer",
+      "label": "PreApprovedOffer",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L516",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_offermartapi",
+      "label": "OfferMartAPI",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L611",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_offermartapi_get_preapproved_offer",
+      "label": ".get_preapproved_offer()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L619",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_calculate_emi",
+      "label": "calculate_emi()",
+      "file_type": "code",
+      "source_file": "mock_apis.py",
+      "source_location": "L655",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_1",
+      "label": "POLARIS Mock APIs Simulates external services: CRM Server and Credit Bureau API.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_19",
+      "label": "Customer record from CRM system.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_214",
+      "label": "Mock CRM Server API.     Simulates calls to customer relationship management sys",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L214",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_223",
+      "label": "GET /customers/lookup?phone={phone}         Fetches customer details from CRM.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L223",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_280",
+      "label": "POST /customers/{customer_id}/verify-kyc         Verifies KYC documents.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L280",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_316",
+      "label": "Credit record from bureau.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L316",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_445",
+      "label": "Mock Credit Bureau API.     Simulates calls to external credit bureau (like CIBI",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L445",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_454",
+      "label": "POST /credit-report/fetch         Fetches credit score and report from bureau.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L454",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_498",
+      "label": "Get rating based on credit score.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L498",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_517",
+      "label": "Pre-approved loan offer.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L517",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_612",
+      "label": "Offer Mart API - Internal service for pre-approved offers.",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L612",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_620",
+      "label": "GET /offers/preapproved/{customer_id}         Fetches pre-approved offer for cus",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L620",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "mock_apis_rationale_656",
+      "label": "Calculate EMI using reducing balance method.          Args:         principal: L",
+      "file_type": "rationale",
+      "source_file": "mock_apis.py",
+      "source_location": "L656",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart",
+      "label": "offer_mart.py",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_customerprofile",
+      "label": "CustomerProfile",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_lookup_customer_by_phone",
+      "label": "lookup_customer_by_phone()",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L102",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_lookup_customer_by_id",
+      "label": "lookup_customer_by_id()",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L117",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_get_preapproved_offer",
+      "label": "get_preapproved_offer()",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L128",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_calculate_emi",
+      "label": "calculate_emi()",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": "L150",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_1",
+      "label": "POLARIS Offer Mart Mock customer database with preapproved offers. Designed for",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_13",
+      "label": "Customer profile from Offer Mart.",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_103",
+      "label": "Look up customer by phone number.     Returns None if customer not found.",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L103",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_118",
+      "label": "Look up customer by customer ID.     Returns None if customer not found.",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L118",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_129",
+      "label": "Get preapproved offer for a customer.     Returns formatted offer details.",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L129",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_rationale_151",
+      "label": "Calculate EMI using standard formula.     rate is annual percentage, tenure in m",
+      "file_type": "rationale",
+      "source_file": "offer_mart.py",
+      "source_location": "L151",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state",
+      "label": "state.py",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_stage",
+      "label": "Stage",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "enum",
+      "label": "Enum",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_decision",
+      "label": "Decision",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_terminalstate",
+      "label": "TerminalState",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate",
+      "label": "ConversationState",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate_is_terminal",
+      "label": ".is_terminal()",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L94",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate_can_call_agent",
+      "label": ".can_call_agent()",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate_record_agent_call",
+      "label": ".record_agent_call()",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L108",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate_add_message",
+      "label": ".add_message()",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_conversationstate_to_dict",
+      "label": ".to_dict()",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": "L119",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_1",
+      "label": "POLARIS Conversation State Management Implements the finite-state machine for lo",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_12",
+      "label": "Conversation stages (finite states).",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_25",
+      "label": "Underwriting decisions.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_33",
+      "label": "Terminal states for conversation end.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_42",
+      "label": "Central state object for the conversation.     Updated at every step by the Mast",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_95",
+      "label": "Check if conversation has reached a terminal state.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_99",
+      "label": "Check if an agent can be called (anti-loop safeguard).         Returns False if",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L99",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_109",
+      "label": "Record an agent call for anti-loop tracking.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L109",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_116",
+      "label": "Add a message to conversation history.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L116",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "state_rationale_120",
+      "label": "Convert state to dictionary for display.",
+      "file_type": "rationale",
+      "source_file": "state.py",
+      "source_location": "L120",
+      "_origin": "ast",
+      "degree": 0
+    },
+    {
+      "id": "polaris",
+      "label": "POLARIS System",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "worker_agents",
+      "label": "Worker Agents",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "state_machine",
+      "label": "State Machine",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "app_py",
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "master_agent_py",
+      "label": "master_agent.py",
+      "file_type": "code",
+      "source_file": "master_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "state_py",
+      "label": "state.py",
+      "file_type": "code",
+      "source_file": "state.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "config_py",
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "offer_mart_py",
+      "label": "offer_mart.py",
+      "file_type": "code",
+      "source_file": "offer_mart.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "agents_base_agent_py",
+      "label": "agents/base_agent.py",
+      "file_type": "code",
+      "source_file": "agents/base_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "agents_sales_agent_py",
+      "label": "agents/sales_agent.py",
+      "file_type": "code",
+      "source_file": "agents/sales_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "agents_verification_agent_py",
+      "label": "agents/verification_agent.py",
+      "file_type": "code",
+      "source_file": "agents/verification_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "agents_underwriting_agent_py",
+      "label": "agents/underwriting_agent.py",
+      "file_type": "code",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "agents_sanction_agent_py",
+      "label": "agents/sanction_agent.py",
+      "file_type": "code",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "intro",
+      "label": "INTRO State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "need_discovery",
+      "label": "NEED_DISCOVERY State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "offer_presentation",
+      "label": "OFFER_PRESENTATION State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "kyc_verification",
+      "label": "KYC_VERIFICATION State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "underwriting",
+      "label": "UNDERWRITING State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "document_collection",
+      "label": "DOCUMENT_COLLECTION State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "sanction",
+      "label": "SANCTION State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "rejection",
+      "label": "REJECTION State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "end",
+      "label": "END State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "loan_sanctioned",
+      "label": "LOAN_SANCTIONED Terminal State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "loan_rejected",
+      "label": "LOAN_REJECTED Terminal State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "additional_document_required",
+      "label": "ADDITIONAL_DOCUMENT_REQUIRED Terminal State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "customer_dropped",
+      "label": "CUSTOMER_DROPPED Terminal State",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "underwriting_rule_1",
+      "label": "Underwriting Rule 1: Reject if credit score < 700",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "underwriting_rule_2",
+      "label": "Underwriting Rule 2: Approve instantly if amount <= pre-approved limit",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "underwriting_rule_3",
+      "label": "Underwriting Rule 3: Require salary slip if amount <= 2x pre-approved limit",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "underwriting_rule_4",
+      "label": "Underwriting Rule 4: Reject if amount > 2x pre-approved limit",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "max_agent_calls_safeguard",
+      "label": "Max 6 agent calls per conversation",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "same_agent_input_safeguard",
+      "label": "Same agent cannot be called twice with identical inputs",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "automatic_termination_safeguard",
+      "label": "Automatic termination on safeguard breach",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "streamlit",
+      "label": "streamlit",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "google_generativeai",
+      "label": "google-generativeai",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "python_dotenv",
+      "label": "python-dotenv",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "fpdf2",
+      "label": "fpdf2",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "requirements_txt",
+      "label": "requirements.txt",
+      "file_type": "code",
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "env",
+      "label": ".env",
+      "file_type": "code",
+      "source_file": ".env",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "env_example",
+      "label": ".env.example",
+      "file_type": "code",
+      "source_file": ".env.example",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "gemini_api_key",
+      "label": "GOOGLE_API_KEY",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_md",
+      "label": ".agents/rules/graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_knowledge_graph",
+      "label": "Graphify Knowledge Graph",
+      "file_type": "concept",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_out_graph_json",
+      "label": "graphify-out/graph.json",
+      "file_type": "code",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_out_wiki_index_md",
+      "label": "graphify-out/wiki/index.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_out_graph_report_md",
+      "label": "graphify-out/GRAPH_REPORT.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_workflow_md",
+      "label": ".agents/workflows/graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "graphify_skill",
+      "label": "Graphify Skill",
+      "file_type": "concept",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "landing_page_index_html",
+      "label": "landing_page/index.html",
+      "file_type": "code",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "github_repository",
+      "label": "GitHub Repository",
+      "file_type": "concept",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "rishet_mehra",
+      "label": "Rishet Mehra",
+      "file_type": "concept",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Rishet Mehra",
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "gemini_2_0_flash",
+      "label": "Gemini 2.0 Flash",
+      "file_type": "concept",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "crm_server_api",
+      "label": "CRM Server API",
+      "file_type": "concept",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "credit_bureau",
+      "label": "Credit Bureau (mock CIBIL)",
+      "file_type": "concept",
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "degree": 0
+    },
+    {
+      "id": "concept_polaris",
+      "label": "POLARIS",
+      "file_type": "project",
+      "degree": 2,
+      "community_name": "Project Root"
+    },
+    {
+      "id": "person_rishet",
+      "label": "Rishet Mehra",
+      "file_type": "person",
+      "degree": 1,
+      "community_name": "Author"
+    }
+  ],
+  "edges": [
+    {
+      "source": "agents_init",
+      "target": "agents_sales_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_verification_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_underwriting_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_sanction_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init_rationale_1",
+      "target": "agents_init",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "hashlib",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "abc",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "abc",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_get_system_prompt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent_process",
+      "target": "agents_base_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_compute_input_hash",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent_compute_input_hash",
+      "target": "agents_base_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_call_llm",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_parse_json_response",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent_parse_json_response",
+      "target": "agents_base_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent",
+      "target": "agents_base_agent_baseagent_validate_output",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_baseagent_validate_output",
+      "target": "agents_base_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_1",
+      "target": "agents_base_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_14",
+      "target": "agents_base_agent_baseagent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_25",
+      "target": "agents_base_agent_baseagent_get_system_prompt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_30",
+      "target": "agents_base_agent_baseagent_process",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_34",
+      "target": "agents_base_agent_baseagent_compute_input_hash",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_39",
+      "target": "agents_base_agent_baseagent_call_llm",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_47",
+      "target": "agents_base_agent_baseagent_parse_json_response",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent_rationale_75",
+      "target": "agents_base_agent_baseagent_validate_output",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent",
+      "target": "agents_base_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent",
+      "target": "agents_sales_agent_salesagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent",
+      "target": "agents_sales_agent_salesagent_get_system_prompt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent",
+      "target": "agents_sales_agent_salesagent_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent_process",
+      "target": "agents_sales_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent_process",
+      "target": "agents_sales_agent_salesagent_get_system_prompt",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_rationale_1",
+      "target": "agents_sales_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_rationale_12",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_rationale_95",
+      "target": "agents_sales_agent_salesagent_process",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "uuid",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "agents_base_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "fpdf",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_sanction_agent_sanctionagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_sanction_agent_sanctionagent_get_system_prompt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_sanction_agent_sanctionagent_generate_sanction_id",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_sanction_agent_sanctionagent_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent_process",
+      "target": "agents_sanction_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent_process",
+      "target": "agents_sanction_agent_sanctionagent_generate_sanction_id",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_rationale_1",
+      "target": "agents_sanction_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_rationale_21",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_rationale_40",
+      "target": "agents_sanction_agent_sanctionagent_generate_sanction_id",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_rationale_46",
+      "target": "agents_sanction_agent_sanctionagent_process",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "agents_base_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "mock_apis",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_underwriting_agent_underwritingagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_underwriting_agent_underwritingagent_get_system_prompt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_underwriting_agent_underwritingagent_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent_process",
+      "target": "agents_underwriting_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_underwriting_agent_underwritingagent_calculate_max_loan",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent_process",
+      "target": "agents_underwriting_agent_underwritingagent_calculate_max_loan",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_rationale_1",
+      "target": "agents_underwriting_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_rationale_12",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_rationale_45",
+      "target": "agents_underwriting_agent_underwritingagent_process",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_rationale_191",
+      "target": "agents_underwriting_agent_underwritingagent_calculate_max_loan",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "agents_base_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "mock_apis",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "agents_verification_agent_verificationagent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "agents_verification_agent_verificationagent_get_system_prompt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "agents_verification_agent_verificationagent_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent_process",
+      "target": "agents_verification_agent_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_rationale_1",
+      "target": "agents_verification_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_rationale_12",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_rationale_34",
+      "target": "agents_verification_agent_verificationagent_process",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "streamlit",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "master_agent",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "state",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_get_status_badge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_get_progress_steps",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L407",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_initialize_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L447",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_display_sidebar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L463",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_display_chat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L563",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "app_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L682",
+      "weight": 1.0
+    },
+    {
+      "source": "app_display_sidebar",
+      "target": "app_get_progress_steps",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "app_display_sidebar",
+      "target": "app_get_status_badge",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L486",
+      "weight": 1.0
+    },
+    {
+      "source": "app_main",
+      "target": "app_initialize_session",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L684",
+      "weight": 1.0
+    },
+    {
+      "source": "app_main",
+      "target": "app_display_sidebar",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L685",
+      "weight": 1.0
+    },
+    {
+      "source": "app_main",
+      "target": "app_display_chat",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L686",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_1",
+      "target": "app",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_394",
+      "target": "app_get_status_badge",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_408",
+      "target": "app_get_progress_steps",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L408",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_448",
+      "target": "app_initialize_session",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L448",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_464",
+      "target": "app_display_sidebar",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L464",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_564",
+      "target": "app_display_chat",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L564",
+      "weight": 1.0
+    },
+    {
+      "source": "app_rationale_683",
+      "target": "app_main",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L683",
+      "weight": 1.0
+    },
+    {
+      "source": "config",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "config",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "config",
+      "target": "google_generativeai",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "config",
+      "target": "config_get_model",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "config_rationale_1",
+      "target": "config",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "config_rationale_43",
+      "target": "config_get_model",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "agents",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "offer_mart",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "master_agent_masteragent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_initialize",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_initialize",
+      "target": "conversationstate",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_get_state",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_get_state",
+      "target": "conversationstate",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_check_safeguards",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_generate_response",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_process_message",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_process_message",
+      "target": "conversationstate",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_route_to_handler",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_intro",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_need_discovery",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_offer_presentation",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_kyc_verification",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_underwriting",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_document_collection",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L350",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_sanction",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L411",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_rejection",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L447",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_handle_end",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L466",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_extract_phone_number",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L481",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "master_agent_masteragent_extract_salary",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L493",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_initialize",
+      "target": "conversationstate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_get_state",
+      "target": "conversationstate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_process_message",
+      "target": "master_agent_masteragent_initialize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_process_message",
+      "target": "master_agent_masteragent_check_safeguards",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_process_message",
+      "target": "master_agent_masteragent_route_to_handler",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_intro",
+      "target": "master_agent_masteragent_extract_phone_number",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_intro",
+      "target": "master_agent_masteragent_handle_need_discovery",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_need_discovery",
+      "target": "master_agent_masteragent_extract_phone_number",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_offer_presentation",
+      "target": "master_agent_masteragent_handle_kyc_verification",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_kyc_verification",
+      "target": "master_agent_masteragent_handle_underwriting",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_underwriting",
+      "target": "master_agent_masteragent_handle_sanction",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L333",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_underwriting",
+      "target": "master_agent_masteragent_handle_rejection",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_document_collection",
+      "target": "master_agent_masteragent_handle_underwriting",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L373",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_document_collection",
+      "target": "master_agent_masteragent_extract_salary",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_1",
+      "target": "master_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_15",
+      "target": "master_agent_masteragent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_39",
+      "target": "master_agent_masteragent_initialize",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_44",
+      "target": "master_agent_masteragent_get_state",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_50",
+      "target": "master_agent_masteragent_check_safeguards",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_65",
+      "target": "master_agent_masteragent_generate_response",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_71",
+      "target": "master_agent_masteragent_process_message",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_98",
+      "target": "master_agent_masteragent_route_to_handler",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_115",
+      "target": "master_agent_masteragent_handle_intro",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_136",
+      "target": "master_agent_masteragent_handle_need_discovery",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_191",
+      "target": "master_agent_masteragent_handle_offer_presentation",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_255",
+      "target": "master_agent_masteragent_handle_kyc_verification",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_298",
+      "target": "master_agent_masteragent_handle_underwriting",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_351",
+      "target": "master_agent_masteragent_handle_document_collection",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L351",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_412",
+      "target": "master_agent_masteragent_handle_sanction",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L412",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_448",
+      "target": "master_agent_masteragent_handle_rejection",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L448",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_467",
+      "target": "master_agent_masteragent_handle_end",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L467",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_482",
+      "target": "master_agent_masteragent_extract_phone_number",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_rationale_494",
+      "target": "master_agent_masteragent_extract_salary",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L494",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "random",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_crmcustomerrecord",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_crmserverapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_crmserverapi",
+      "target": "mock_apis_crmserverapi_fetch_customer",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_crmserverapi_fetch_customer",
+      "target": "mock_apis_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_crmserverapi",
+      "target": "mock_apis_crmserverapi_verify_kyc",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_crmserverapi_verify_kyc",
+      "target": "mock_apis_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_creditbureaurecord",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L315",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L444",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_creditbureauapi",
+      "target": "mock_apis_creditbureauapi_fetch_credit_score",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_creditbureauapi_fetch_credit_score",
+      "target": "mock_apis_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_get_score_rating",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_preapprovedoffer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L516",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_offermartapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L611",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_offermartapi",
+      "target": "mock_apis_offermartapi_get_preapproved_offer",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L619",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_offermartapi_get_preapproved_offer",
+      "target": "mock_apis_py_any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L619",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis",
+      "target": "mock_apis_calculate_emi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L655",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_creditbureauapi_fetch_credit_score",
+      "target": "mock_apis_get_score_rating",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_1",
+      "target": "mock_apis",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_19",
+      "target": "mock_apis_crmcustomerrecord",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_214",
+      "target": "mock_apis_crmserverapi",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L214",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_223",
+      "target": "mock_apis_crmserverapi_fetch_customer",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_280",
+      "target": "mock_apis_crmserverapi_verify_kyc",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L280",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_316",
+      "target": "mock_apis_creditbureaurecord",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L316",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_445",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_454",
+      "target": "mock_apis_creditbureauapi_fetch_credit_score",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L454",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_498",
+      "target": "mock_apis_get_score_rating",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L498",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_517",
+      "target": "mock_apis_preapprovedoffer",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L517",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_612",
+      "target": "mock_apis_offermartapi",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L612",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_620",
+      "target": "mock_apis_offermartapi_get_preapproved_offer",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L620",
+      "weight": 1.0
+    },
+    {
+      "source": "mock_apis_rationale_656",
+      "target": "mock_apis_calculate_emi",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "mock_apis.py",
+      "source_location": "L656",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "offer_mart_customerprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "offer_mart_lookup_customer_by_phone",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_lookup_customer_by_phone",
+      "target": "offer_mart_customerprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "offer_mart_lookup_customer_by_id",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_lookup_customer_by_id",
+      "target": "offer_mart_customerprofile",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "offer_mart_get_preapproved_offer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart",
+      "target": "offer_mart_calculate_emi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_get_preapproved_offer",
+      "target": "offer_mart_lookup_customer_by_phone",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_1",
+      "target": "offer_mart",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_13",
+      "target": "offer_mart_customerprofile",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_103",
+      "target": "offer_mart_lookup_customer_by_phone",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_118",
+      "target": "offer_mart_lookup_customer_by_id",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_129",
+      "target": "offer_mart_get_preapproved_offer",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "offer_mart_rationale_151",
+      "target": "offer_mart_calculate_emi",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "offer_mart.py",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "enum",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "state_stage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "state_stage",
+      "target": "str",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "state_stage",
+      "target": "enum",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "state_decision",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "state_decision",
+      "target": "str",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "state_decision",
+      "target": "enum",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "state_terminalstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "state_terminalstate",
+      "target": "str",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "state_terminalstate",
+      "target": "enum",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "state",
+      "target": "state_conversationstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "state_conversationstate",
+      "target": "state_conversationstate_is_terminal",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "state_conversationstate",
+      "target": "state_conversationstate_can_call_agent",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "state_conversationstate",
+      "target": "state_conversationstate_record_agent_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "state_conversationstate",
+      "target": "state_conversationstate_add_message",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "state_conversationstate",
+      "target": "state_conversationstate_to_dict",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_1",
+      "target": "state",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_12",
+      "target": "state_stage",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_25",
+      "target": "state_decision",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_33",
+      "target": "state_terminalstate",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_42",
+      "target": "state_conversationstate",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_95",
+      "target": "state_conversationstate_is_terminal",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_99",
+      "target": "state_conversationstate_can_call_agent",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_109",
+      "target": "state_conversationstate_record_agent_call",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_116",
+      "target": "state_conversationstate_add_message",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "state_rationale_120",
+      "target": "state_conversationstate_to_dict",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "state.py",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_sales_agent",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_verification_agent",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_underwriting_agent",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_sanction_agent",
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_init",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_base_agent",
+      "target": "config_get_model",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/base_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent",
+      "target": "mock_apis_calculate_emi",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "mock_apis_crmserverapi",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent",
+      "target": "mock_apis_offermartapi",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "master_agent_masteragent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "state_terminalstate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app",
+      "target": "state_stage",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state_conversationstate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state_stage",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state_decision",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state_terminalstate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "offer_mart_get_preapproved_offer",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "offer_mart_lookup_customer_by_phone",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "config_get_model",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "mock_apis_crmserverapi",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "master_agent.py",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "app_initialize_session",
+      "target": "master_agent_masteragent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L450",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_salesagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_sales_agent_py_any",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/sales_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_sanction_agent_sanctionagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L10",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_sanction_agent_py_any",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/sanction_agent.py",
+      "source_location": "L10",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L7",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_underwriting_agent_py_any",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L7",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_underwriting_agent_py_any",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L7",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_py_any",
+      "target": "agents_base_agent_baseagent",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L7",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "mock_apis_crmserverapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_py_any",
+      "target": "mock_apis_crmserverapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_verificationagent",
+      "target": "mock_apis_offermartapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_verification_agent_py_any",
+      "target": "mock_apis_offermartapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "state_conversationstate",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "conversationstate",
+      "target": "state_conversationstate",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "state_stage",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "conversationstate",
+      "target": "state_stage",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "state_decision",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "conversationstate",
+      "target": "state_decision",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "state_terminalstate",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "conversationstate",
+      "target": "state_terminalstate",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "mock_apis_crmserverapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L360",
+      "weight": 0.8
+    },
+    {
+      "source": "conversationstate",
+      "target": "mock_apis_crmserverapi",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "master_agent.py",
+      "source_location": "L360",
+      "weight": 0.8
+    },
+    {
+      "source": "agents_base_agent_baseagent_init",
+      "target": "config_get_model",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "agents/base_agent.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent_init",
+      "target": "mock_apis_creditbureauapi",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_underwritingagent_process",
+      "target": "mock_apis_calculate_emi",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "agents/underwriting_agent.py",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent_init",
+      "target": "mock_apis_crmserverapi",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_verificationagent_init",
+      "target": "mock_apis_offermartapi",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "agents/verification_agent.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_init",
+      "target": "config_get_model",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_init",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_init",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_init",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_init",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_need_discovery",
+      "target": "offer_mart_get_preapproved_offer",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_masteragent_handle_need_discovery",
+      "target": "offer_mart_lookup_customer_by_phone",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "master_agent.py",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "polaris",
+      "target": "master_agent",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "polaris",
+      "target": "worker_agents",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "polaris",
+      "target": "state_machine",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "worker_agents",
+      "relation": "orchestrates",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent",
+      "target": "state_machine",
+      "relation": "controls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "app_py",
+      "target": "streamlit",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "app_py",
+      "target": "master_agent_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "state_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "config_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "offer_mart_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "agents_sales_agent_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "agents_verification_agent_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "agents_underwriting_agent_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "master_agent_py",
+      "target": "agents_sanction_agent_py",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_py",
+      "target": "agents_base_agent_py",
+      "relation": "inherits",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_py",
+      "target": "agents_base_agent_py",
+      "relation": "inherits",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "agents_base_agent_py",
+      "relation": "inherits",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_py",
+      "target": "agents_base_agent_py",
+      "relation": "inherits",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "state_machine",
+      "target": "intro",
+      "relation": "has_state",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "intro",
+      "target": "need_discovery",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "need_discovery",
+      "target": "offer_presentation",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "offer_presentation",
+      "target": "kyc_verification",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "kyc_verification",
+      "target": "underwriting",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "underwriting",
+      "target": "document_collection",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "document_collection",
+      "target": "sanction",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "document_collection",
+      "target": "rejection",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "sanction",
+      "target": "end",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "rejection",
+      "target": "end",
+      "relation": "transitions_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "sanction",
+      "target": "loan_sanctioned",
+      "relation": "is_terminal_state_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "rejection",
+      "target": "loan_rejected",
+      "relation": "is_terminal_state_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "document_collection",
+      "target": "additional_document_required",
+      "relation": "can_lead_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "state_machine",
+      "target": "customer_dropped",
+      "relation": "can_lead_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "underwriting_rule_1",
+      "relation": "applies",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "underwriting_rule_2",
+      "relation": "applies",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "underwriting_rule_3",
+      "relation": "applies",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "underwriting_rule_4",
+      "relation": "applies",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "state_machine",
+      "target": "max_agent_calls_safeguard",
+      "relation": "enforces",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "state_machine",
+      "target": "same_agent_input_safeguard",
+      "relation": "enforces",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "state_machine",
+      "target": "automatic_termination_safeguard",
+      "relation": "enforces",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt",
+      "target": "streamlit",
+      "relation": "specifies_dependency",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt",
+      "target": "google_generativeai",
+      "relation": "specifies_dependency",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt",
+      "target": "python_dotenv",
+      "relation": "specifies_dependency",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt",
+      "target": "fpdf2",
+      "relation": "specifies_dependency",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "env_example",
+      "target": "env",
+      "relation": "is_template_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "env",
+      "target": "gemini_api_key",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "config_py",
+      "target": "gemini_api_key",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "graphify_md",
+      "target": "graphify_knowledge_graph",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "graphify_knowledge_graph",
+      "target": "graphify_out_graph_json",
+      "relation": "is_represented_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "graphify_knowledge_graph",
+      "target": "graphify_out_wiki_index_md",
+      "relation": "is_represented_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "graphify_knowledge_graph",
+      "target": "graphify_out_graph_report_md",
+      "relation": "is_represented_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "graphify_workflow_md",
+      "target": "graphify_skill",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "landing_page_index_html",
+      "target": "polaris",
+      "relation": "describes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "landing_page_index_html",
+      "target": "github_repository",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "landing_page_index_html",
+      "target": "rishet_mehra",
+      "relation": "authored_by",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sales_agent_py",
+      "target": "gemini_2_0_flash",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_verification_agent_py",
+      "target": "crm_server_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_underwriting_agent_py",
+      "target": "credit_bureau",
+      "relation": "fetches_data_from",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_sanction_agent_py",
+      "target": "fpdf2",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "landing_page/index.html",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 9485,
+  "output_tokens": 10595,
+  "links": [
+    {
+      "source": "concept_polaris",
+      "target": "person_rishet",
+      "relation": "BUILT_BY",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "concept_polaris",
+      "target": "master_agent_masteragent",
+      "relation": "ORCHESTRATOR",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "conversationstate",
+      "relation": "MANAGES_STATE",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "agents_sales_agent_salesagent",
+      "relation": "INITIALIZES",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "agents_verification_agent_verificationagent",
+      "relation": "INITIALIZES",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "agents_underwriting_agent_underwritingagent",
+      "relation": "INITIALIZES",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    },
+    {
+      "source": "master_agent_masteragent",
+      "target": "agents_sanction_agent_sanctionagent",
+      "relation": "INITIALIZES",
+      "weight": 1.0,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual_injection"
+    }
+  ]
+}
