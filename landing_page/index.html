@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POLARIS — AI Loan Sales, Governed by Code</title>
-  <meta name="description" content="POLARIS: A multi-agent AI loan sales system with deterministic FSM governance. 4 specialized agents, 9 states, 4 underwriting rules, 0 hallucinations. Built by Rishet Mehra." />
+  <title>POLARIS — Financial Workflows, Governed by Code</title>
+  <meta name="description" content="POLARIS: an FSM-governed multi-agent system for high-stakes financial workflows. Loan origination and factoring back office (cash application + collections) on the same deterministic engine. Built by Rishet Mehra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -174,26 +174,27 @@
   <div class="nav-links">
     <a href="#problem">Problem</a>
     <a href="#architecture">Architecture</a>
-    <a href="#agents">Agents</a>
+    <a href="#agents">Origination</a>
+    <a href="#factoring">Factoring</a>
     <a href="#underwriting">Rules</a>
     <a href="https://github.com/Rishet11/POLARIS" class="nav-cta">View on GitHub ↗</a>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-badge">Multi-Agent &nbsp;·&nbsp; FSM Governed &nbsp;·&nbsp; Production-Grade</div>
-  <h1>AI Loan Sales,<br/><span class="h1-red">Governed</span> by <span class="h1-cyan">Code</span></h1>
-  <p class="hero-sub">POLARIS replaces fragile LLM conversation loops with a deterministic finite-state machine. 4 specialized agents. 9 states. 4 underwriting rules. Zero hallucinations.</p>
+  <div class="hero-badge">Multi-Agent &nbsp;·&nbsp; FSM Governed &nbsp;·&nbsp; Two Workflows, One Engine</div>
+  <h1>Financial Workflows,<br/><span class="h1-red">Governed</span> by <span class="h1-cyan">Code</span></h1>
+  <p class="hero-sub">POLARIS replaces fragile LLM conversation loops with a deterministic finite-state machine. Loan origination and factoring back office — cash application and collections — run on the same engine. Zero hallucinated approvals. Zero duplicate actions.</p>
   <div class="hero-ctas">
     <a href="https://github.com/Rishet11/POLARIS" class="btn-primary">⭐ View on GitHub</a>
     <a href="#architecture" class="btn-secondary">Explore Architecture →</a>
   </div>
   <div class="stats-strip">
-    <div class="stat-item"><div class="stat-num" data-target="9">0</div><div class="stat-label">FSM States</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-label">Specialized Agents</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-label">Underwriting Rules</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="2">0</div><div class="stat-label">Workflows</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="9">0</div><div class="stat-label">Origination States</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-label">Reconciliation Tiers</div></div>
     <div class="stat-item"><div class="stat-num" data-target="0">0</div><div class="stat-label">Hallucinations</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="6">0</div><div class="stat-label">Max Agent Calls</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="71">0</div><div class="stat-label">Passing Tests</div></div>
   </div>
 </div>
 
@@ -249,6 +250,38 @@
     <div class="agent-card"><div class="agent-icon">🔍</div><div class="agent-name">Verification Agent</div><div class="agent-role">KYC Check</div><div class="agent-desc">Calls CRM server via GET /customers/lookup?phone. Validates PAN, Aadhaar, KYC status. Cannot be bypassed regardless of credit score.</div><span class="agent-tag tag-api">CRM Server API</span></div>
     <div class="agent-card"><div class="agent-icon">📊</div><div class="agent-name">Underwriting Agent</div><div class="agent-role">Credit Decision</div><div class="agent-desc">Fetches credit score from Credit Bureau (mock CIBIL). Applies 4 deterministic rules. Zero LLM involvement — pure Python logic.</div><span class="agent-tag tag-rule">Rule-Based · No LLM</span></div>
     <div class="agent-card"><div class="agent-icon">📋</div><div class="agent-name">Sanction Agent</div><div class="agent-role">Letter Generation</div><div class="agent-desc">Triggers only on APPROVED. Generates formal PDF sanction letter with unique ID, loan details, T&C, and authorized signatory.</div><span class="agent-tag tag-pdf">fpdf2 · PDF Generated</span></div>
+  </div>
+</section>
+
+<section id="factoring">
+  <div class="section-tag">Second Workflow</div>
+  <h2>Factoring back office: cash application &amp; collections</h2>
+  <p class="section-desc">Same FSM engine, a different regulated workflow. Incoming bank payments never get matched by an LLM guess — a wrong automatic match moves real money to the wrong ledger.</p>
+  <div class="rules-grid fade-up" style="margin-top:32px">
+    <div class="rule-card"><div class="rule-num approve">100</div><div><div class="rule-title">AUTO_APPLY</div><div class="rule-desc">Exact reference + exact amount. Applied, no review.</div></div></div>
+    <div class="rule-card"><div class="rule-num doc">90</div><div><div class="rule-title">AUTO_APPLY_LOGGED</div><div class="rule-desc">Unambiguous amount match, no clean reference. Applied with an audit-log entry.</div></div></div>
+    <div class="rule-card"><div class="rule-num doc">70–89</div><div><div class="rule-title">REVIEW</div><div class="rule-desc">Probable match — short-pay, combined remittance, partial payment. Suggested, waits for a human.</div></div></div>
+    <div class="rule-card"><div class="rule-num reject">&lt;70</div><div><div class="rule-title">EXCEPTION</div><div class="rule-desc">Ambiguous or no signal. Routed to the exception queue, never guessed.</div></div></div>
+  </div>
+  <p class="section-desc" style="margin-top:32px">The demo bank feed is deliberately messy: wire-fee short-pays, one wire covering three invoices, a reused PO reference matching two invoices, and unreferenced payments with colliding amounts — so the tier engine has real work to do.</p>
+
+  <h2 style="margin-top:80px;font-size:clamp(24px,3vw,36px)">Collections: a guarded FSM per invoice</h2>
+  <p class="section-desc">Past-due invoices are ranked by priority — factored amount × aging-bucket weight × dispute history — and each case runs its own state machine, not a freeform chat loop.</p>
+  <div class="fsm-container fade-up" style="margin-top:32px;padding:32px 24px">
+    <div class="fsm-row">
+      <div class="fsm-node"><div class="node-icon">📊</div><div class="node-label">PRIORITIZE</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">📨</div><div class="node-label">OUTREACH</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">⏳</div><div class="node-label">AWAIT RESPONSE</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node"><div class="node-icon">🤝</div><div class="node-label">PROMISE / DISPUTE</div></div>
+      <div class="fsm-arrow">→</div>
+      <div class="fsm-node terminal-ok"><div class="node-icon">✅</div><div class="node-label">RESOLVED</div></div>
+    </div>
+    <div style="margin-top:24px;padding:16px 20px;background:rgba(0,0,0,0.3);border-radius:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);line-height:2;text-align:center">
+      Same dunning message can never be sent twice (content-hash check) &nbsp;·&nbsp; Escalation gated behind 2 unanswered outreaches &nbsp;·&nbsp; Terminal cases reject all further actions
+    </div>
   </div>
 </section>
 
@@ -311,7 +344,7 @@
     <div class="section-tag" style="text-align:center;margin-bottom:8px">One Paragraph Pitch</div>
     <h2 style="text-align:center;margin-bottom:0">The architecture pattern for regulated AI</h2>
     <blockquote>
-      POLARIS is a multi-agent loan sales system built to demonstrate a production architecture pattern that most AI companies are still struggling to implement: deterministic FSM governance over LLM agents. A Master Agent orchestrates four specialized Worker Agents through a 9-state finite-state machine with three independent anti-loop mechanisms. The underwriting engine applies four hard rules with zero LLM involvement, calculates EMIs using the reducing balance method, and generates a formal PDF sanction letter on approval. The mock API layer simulates CRM, credit bureau, and offer mart endpoints with 10 test customers spanning approved, rejected, KYC-failed, and low-credit scenarios. The full conversation cannot hallucinate an approval, cannot skip KYC, and cannot loop — a pattern that translates directly to any regulated AI workflow.
+      POLARIS is a multi-agent system built to demonstrate a production architecture pattern that most AI companies are still struggling to implement: deterministic FSM governance over LLM agents, applied to two regulated financial workflows on the same engine. Loan origination runs a Master Agent through a 9-state finite-state machine with three independent anti-loop mechanisms, applying four underwriting rules with zero LLM involvement. Factoring back office runs cash application through four confidence tiers — auto-apply, auto-apply-with-audit-log, human review, or exception queue — so a low-confidence match never gets guessed, and collections through a guarded per-invoice FSM where the same dunning message can never be sent twice. Neither workflow can hallucinate a decision, skip a mandatory step, or loop — a pattern that translates directly to any regulated AI workflow.
     </blockquote>
     <p style="color:var(--muted);font-size:14px">— Rishet Mehra, builder</p>
   </div>
@@ -331,7 +364,7 @@
 </div>
 
 <footer>
-  <div class="footer-text">POLARIS — Built for hackathon · Production-grade architecture · Rishet Mehra 2026</div>
+  <div class="footer-text">POLARIS — FSM-governed multi-agent system for financial workflows · Rishet Mehra 2026</div>
   <div class="footer-links">
     <a href="https://github.com/Rishet11/POLARIS">GitHub</a>
     <a href="https://linkedin.com/in/rishetmehra">LinkedIn</a>
