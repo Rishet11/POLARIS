@@ -103,6 +103,7 @@ class BankPayment:
     match_confidence: Optional[int] = None
     match_tier: Optional[MatchTier] = None
     match_reason: Optional[str] = None
+    applied: bool = False
 
 
 def days_ago(n: int) -> date:

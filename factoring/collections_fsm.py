@@ -58,6 +58,11 @@ MIN_OUTREACHES_BEFORE_ESCALATION = 2
 # Hard cap on FSM actions per case (mirrors MAX_AGENT_CALLS in origination)
 MAX_ACTIONS_PER_CASE = 10
 
+# Dunning ladder: 1st touch WhatsApp, 2nd email, 3rd+ escalates to a phone
+# call task. Chosen deterministically from outreach_count — never a model
+# decision, so the channel a debtor sees on attempt N is always the same.
+DUNNING_CHANNEL_LADDER = ["whatsapp", "email", "phone"]
+
 
 class CollectionOutcome(str, Enum):
     """Result of attempting an FSM action."""
@@ -83,6 +88,7 @@ class CollectionCase:
 
     outreach_count: int = 0
     sent_message_hashes: List[str] = field(default_factory=list)
+    channel_history: List[str] = field(default_factory=list)
     total_actions: int = 0
     history: List[str] = field(default_factory=list)
 
@@ -124,12 +130,24 @@ class CollectionCase:
     def start_outreach(self) -> CollectionOutcome:
         return self._move(CollectionStage.OUTREACH, "outreach cycle started")
 
-    def send_message(self, message: str) -> Tuple[CollectionOutcome, Optional[str]]:
+    def current_channel(self) -> str:
         """
-        Send a dunning message. Anti-loop guard: the same message content
-        can never be sent twice on a case.
+        Next channel in the dunning ladder, chosen deterministically from
+        outreach_count: 1st touch WhatsApp, 2nd email, 3rd+ phone escalation.
+        """
+        index = min(self.outreach_count, len(DUNNING_CHANNEL_LADDER) - 1)
+        return DUNNING_CHANNEL_LADDER[index]
+
+    def send_message(
+        self, message: str, channel: Optional[str] = None
+    ) -> Tuple[CollectionOutcome, Optional[str]]:
+        """
+        Send a dunning message on a channel (defaults to the next rung of
+        the dunning ladder). Anti-loop guard: the same message content can
+        never be sent twice on a case.
         Returns (outcome, message_or_None).
         """
+        channel = channel or self.current_channel()
         msg_hash = hashlib.md5(message.strip().lower().encode()).hexdigest()[:12]
         if msg_hash in self.sent_message_hashes:
             self.history.append(
@@ -138,11 +156,12 @@ class CollectionCase:
             return CollectionOutcome.BLOCKED_DUPLICATE_MESSAGE, None
 
         outcome = self._move(CollectionStage.AWAIT_RESPONSE,
-                             f"reminder #{self.outreach_count + 1} sent")
+                             f"reminder #{self.outreach_count + 1} sent via {channel}")
         if outcome is not CollectionOutcome.OK:
             return outcome, None
 
         self.sent_message_hashes.append(msg_hash)
+        self.channel_history.append(channel)
         self.outreach_count += 1
         return CollectionOutcome.OK, message
 
@@ -196,4 +215,6 @@ class CollectionCase:
             "outreach_count": self.outreach_count,
             "total_actions": self.total_actions,
             "dilution_reserve": self.dilution_reserve,
+            "channel_history": list(self.channel_history),
+            "next_channel": self.current_channel(),
         }

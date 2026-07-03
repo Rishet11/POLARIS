@@ -76,10 +76,12 @@ class CollectionsAgent:
     # Outreach
     # ------------------------------------------------------------------
 
-    def draft_reminder(self, case: CollectionCase, invoice: Invoice, debtor: Debtor) -> str:
+    def draft_reminder(
+        self, case: CollectionCase, invoice: Invoice, debtor: Debtor, language: str = "en"
+    ) -> str:
         """Draft the next dunning message. Template in demo mode, LLM otherwise."""
         attempt = case.outreach_count + 1
-        template = self._template(case, invoice, debtor, attempt)
+        template = self._template(case, invoice, debtor, attempt, language)
         if self.model is None:
             return template
         try:
@@ -93,8 +95,29 @@ class CollectionsAgent:
             return template  # never let a drafting failure stall a case
 
     @staticmethod
-    def _template(case: CollectionCase, invoice: Invoice, debtor: Debtor, attempt: int) -> str:
+    def _template(
+        case: CollectionCase, invoice: Invoice, debtor: Debtor, attempt: int, language: str = "en"
+    ) -> str:
         dpd = invoice.days_past_due()
+        if language == "es":
+            if attempt == 1:
+                return (
+                    f"Estimado equipo de cuentas por pagar de {debtor.name},\n\n"
+                    f"Nuestros registros muestran que la factura {invoice.invoice_id} por "
+                    f"${invoice.open_amount:,.2f} venció el {invoice.due_date.isoformat()} "
+                    f"y ahora tiene {dpd} días de retraso. Por favor confirme la fecha de "
+                    f"pago, o indíquenos si hay algún problema con esta factura.\n\n"
+                    f"Atentamente,\nPOLARIS Receivables"
+                )
+            return (
+                f"Estimado equipo de cuentas por pagar de {debtor.name},\n\n"
+                f"Segundo aviso: la factura {invoice.invoice_id} "
+                f"(${invoice.open_amount:,.2f}, {dpd} días de retraso) sigue sin pagarse y "
+                f"no hemos recibido respuesta a nuestro aviso anterior. Por favor remita el "
+                f"pago o responda con una fecha de pago dentro de 3 días hábiles para "
+                f"evitar una escalación.\n\n"
+                f"Atentamente,\nPOLARIS Receivables"
+            )
         if attempt == 1:
             return (
                 f"Dear {debtor.name} accounts payable,\n\n"
@@ -114,22 +137,23 @@ class CollectionsAgent:
         )
 
     def run_outreach(
-        self, case: CollectionCase, invoice: Invoice, debtor: Debtor
+        self, case: CollectionCase, invoice: Invoice, debtor: Debtor, language: str = "en"
     ) -> Tuple[CollectionOutcome, Optional[str]]:
-        """One full outreach step: enter OUTREACH, draft, send (guarded)."""
+        """One full outreach step: enter OUTREACH, draft, send on the next
+        rung of the dunning ladder (guarded)."""
         # A previously blocked send can leave the case sitting in OUTREACH;
         # re-entering it would be an illegal self-transition.
         if case.stage is not CollectionStage.OUTREACH:
             outcome = case.start_outreach()
             if outcome is not CollectionOutcome.OK:
                 return outcome, None
-        message = self.draft_reminder(case, invoice, debtor)
+        message = self.draft_reminder(case, invoice, debtor, language)
         outcome, sent = case.send_message(message)
         if outcome is CollectionOutcome.BLOCKED_DUPLICATE_MESSAGE:
             # LLM produced wording identical to an earlier send. The raw
             # template is distinct per attempt, so retry with it; if even
             # that is a duplicate, this really is a repeated step — stay blocked.
-            fallback = self._template(case, invoice, debtor, case.outreach_count + 1)
+            fallback = self._template(case, invoice, debtor, case.outreach_count + 1, language)
             if fallback != message:
                 return case.send_message(fallback)
         return outcome, sent

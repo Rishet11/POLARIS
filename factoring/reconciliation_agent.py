@@ -13,6 +13,7 @@ Tiers:
 
 import itertools
 import re
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 from .models import BankPayment, Debtor, Invoice, InvoiceStatus, MatchTier
@@ -25,6 +26,78 @@ REF_PATTERN = re.compile(r"\b(?:INV|PO)-\d+\b", re.IGNORECASE)
 
 # Max invoices considered in a combined-remittance match
 MAX_COMBO_SIZE = 4
+
+
+def _audit_entry(payment: BankPayment, actor: str, reason: Optional[str] = None) -> Dict[str, Any]:
+    """Build a structured, timestamped audit entry for one decision or action."""
+    return {
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "actor": actor,
+        "payment_id": payment.payment_id,
+        "invoice_ids": list(payment.matched_invoice_ids),
+        "tier": payment.match_tier.value if payment.match_tier else None,
+        "confidence": payment.match_confidence,
+        "reason": reason if reason is not None else payment.match_reason,
+    }
+
+
+def apply_match(
+    payment: BankPayment,
+    invoices: List[Invoice],
+    actor: str = "human",
+) -> Dict[str, Any]:
+    """
+    Apply a matched payment to the ledger: mutate invoice paid_amount/status
+    and mark the payment as applied. Used by BOTH the auto-tier path
+    (actor="system") and human review-queue approvals (actor="human"), so
+    ledger state is identical regardless of who approved the match.
+
+    Guarded: a payment can never be applied twice.
+    """
+    if payment.applied:
+        raise ValueError(f"{payment.payment_id} is already applied — cannot double-apply")
+    if not payment.matched_invoice_ids:
+        raise ValueError(f"{payment.payment_id} has no matched invoices to apply")
+
+    by_id = {inv.invoice_id: inv for inv in invoices}
+    remaining = payment.amount
+
+    for invoice_id in payment.matched_invoice_ids:
+        inv = by_id[invoice_id]
+        allocation = min(remaining, inv.open_amount)
+        inv.paid_amount = round(inv.paid_amount + allocation, 2)
+        remaining = round(remaining - allocation, 2)
+
+        if inv.open_amount <= 0.005:
+            inv.status = InvoiceStatus.PAID
+        elif inv.paid_amount <= 0:
+            pass  # nothing allocated to this invoice; leave status untouched
+        else:
+            is_short_pay = (
+                payment.match_reason is not None and "short-pay" in payment.match_reason.lower()
+            )
+            inv.status = InvoiceStatus.SHORT_PAY if is_short_pay else InvoiceStatus.PARTIAL
+
+    payment.applied = True
+    return _audit_entry(payment, actor)
+
+
+def reject_match(
+    payment: BankPayment,
+    reason: str,
+    actor: str = "human",
+) -> Dict[str, Any]:
+    """
+    Reject a suggested match and route the payment to the exception queue.
+    Does not touch ledger state. Guarded: cannot reject an already-applied
+    payment.
+    """
+    if payment.applied:
+        raise ValueError(f"{payment.payment_id} is already applied — cannot reject")
+
+    payment.match_tier = MatchTier.EXCEPTION
+    payment.match_reason = reason
+    return _audit_entry(payment, actor, reason=reason)
 
 
 class ReconciliationAgent:
@@ -46,20 +119,28 @@ class ReconciliationAgent:
         REVIEW and EXCEPTION results only carry suggested matches and wait
         for a human.
 
-        Returns {results: [payment...], kpis: {...}, audit_log: [...]}
+        Returns {results, kpis, audit_log, audit_trail}. `audit_log` (plain
+        strings) is kept for backward compatibility; `audit_trail` (A2) is a
+        structured, timestamped entry for every payment's decision, across
+        all four tiers, plus any later human approve/reject action.
         """
         audit_log: List[str] = []
+        audit_trail: List[Dict[str, Any]] = []
 
         for payment in payments:
             self._match_payment(payment, invoices, debtors)
-            if payment.match_tier == MatchTier.AUTO_APPLY:
-                self._apply(payment, invoices)
-            elif payment.match_tier == MatchTier.AUTO_APPLY_LOGGED:
-                self._apply(payment, invoices)
-                audit_log.append(
-                    f"{payment.payment_id}: auto-applied at {payment.match_confidence}% "
-                    f"to {', '.join(payment.matched_invoice_ids)} — {payment.match_reason}"
-                )
+            if payment.match_tier in (MatchTier.AUTO_APPLY, MatchTier.AUTO_APPLY_LOGGED):
+                entry = apply_match(payment, invoices, actor="system")
+                audit_trail.append(entry)
+                if payment.match_tier == MatchTier.AUTO_APPLY_LOGGED:
+                    audit_log.append(
+                        f"{payment.payment_id}: auto-applied at {payment.match_confidence}% "
+                        f"to {', '.join(payment.matched_invoice_ids)} — {payment.match_reason}"
+                    )
+            else:
+                # REVIEW / EXCEPTION: not applied yet, but the decision itself
+                # (what tier, why) is still timestamped and searchable.
+                audit_trail.append(_audit_entry(payment, actor="system"))
 
         tiers = [p.match_tier for p in payments]
         auto = sum(1 for t in tiers if t in (MatchTier.AUTO_APPLY, MatchTier.AUTO_APPLY_LOGGED))
@@ -76,6 +157,7 @@ class ReconciliationAgent:
                 "exceptions": exceptions,
             },
             "audit_log": audit_log,
+            "audit_trail": audit_trail,
         }
 
     # ------------------------------------------------------------------
@@ -199,16 +281,3 @@ class ReconciliationAgent:
         payment.match_confidence = confidence
         payment.match_tier = tier
         payment.match_reason = reason
-
-    # ------------------------------------------------------------------
-    # Application
-    # ------------------------------------------------------------------
-
-    @staticmethod
-    def _apply(payment: BankPayment, invoices: List[Invoice]) -> None:
-        """Apply an auto-tier payment (always a single exact-amount match)."""
-        by_id = {inv.invoice_id: inv for inv in invoices}
-        (invoice_id,) = payment.matched_invoice_ids
-        inv = by_id[invoice_id]
-        inv.paid_amount = round(inv.paid_amount + payment.amount, 2)
-        inv.status = InvoiceStatus.PAID

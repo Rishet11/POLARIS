@@ -1,7 +1,7 @@
 """
 test_app_smoke.py - Headless UI smoke test via streamlit.testing.
-Boots the full app and walks the Back Office tab: run cash application,
-build the collections queue, send a reminder — no exceptions allowed.
+Boots the full app and walks the Back Office tab: run payment matching,
+build the collections queue, send a reminder - no exceptions allowed.
 """
 
 from streamlit.testing.v1 import AppTest
@@ -23,7 +23,7 @@ def test_app_boots_without_exception():
 def test_back_office_full_walkthrough():
     at = AppTest.from_file("app.py", default_timeout=15).run()
 
-    at = click_button(at, "Run Cash Application")
+    at = click_button(at, "Run Payment Matching")
     assert not at.exception
     # KPI metrics appear after the run
     metric_labels = [m.label for m in at.metric]
@@ -36,5 +36,5 @@ def test_back_office_full_walkthrough():
     assert not at.exception
 
     # The duplicate-send demo path must also not crash
-    at = click_button(at, "Retry same send")
+    at = click_button(at, "Retry identical send")
     assert not at.exception

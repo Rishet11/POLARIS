@@ -1,39 +1,46 @@
 # CLAUDE.md — POLARIS
 
-Project-specific instructions for Claude Code sessions in this repo. Global instructions in `~/.claude/CLAUDE.md` still apply; this file adds context specific to POLARIS.
+Project-specific instructions for Claude Code sessions in this repo. Global instructions still apply; this file adds context specific to POLARIS.
 
 ## What this repo is
 
-A hackathon project repurposed as an internship demo for **Isabela Rodriguez, CEO of Zolvo** (YC S26, AI back-office automation for commercial factoring/ABL lenders). See [context.md](context.md) for the full backstory, why this pivot happened, and the domain vocabulary being targeted.
+POLARIS is an FSM-governed multi-agent system for financial back-office workflows. Two workflows run on one shared engine pattern (explicit state machines, hard guards, no improvisation):
 
-Two workflows on one FSM engine:
-1. **Loan Origination** (original hackathon build) — consumer personal-loan sales chatbot, India NBFC. `master_agent.py`, `agents/`, `state.py`.
-2. **Factoring Back Office** (built for the Zolvo pitch) — cash-application (payment reconciliation) and collections on factored invoices. `factoring/`.
+1. **Loan Origination** — consumer personal-loan sales chatbot for an NBFC (non-bank lender). `master_agent.py`, `agents/`, `state.py`.
+2. **Factoring Back Office** — payment reconciliation (cash application) and collections on factored invoices. `factoring/`.
 
-## Ground truth, not the plan file
+## Architecture map
 
-`/Users/rishetmehra/.claude/plans/u-remmeber-i-was-starry-walrus.md` has the original plan. Treat it as historical intent, not current state — check the code before assuming a phase is done. As of this writing: factoring package, tests, README, and DEMO_MODE fallback are built and committed to the working tree (uncommitted to git — see `git status`). Hosting, the Loom recording, and the reply email are NOT done.
+- `state.py` — origination FSM: states, allowed transitions, anti-loop guards (`MAX_AGENT_CALLS`, terminal states).
+- `master_agent.py` — origination orchestrator; routes each turn to the right specialist agent based on FSM state.
+- `agents/` — origination specialist agents (sales, underwriting, verification, sanction). `underwriting_agent.py` is rule-based.
+- `config.py` — Gemini API setup, `DEMO_MODE` flag, model config.
+- `factoring/models.py` — data models: `Debtor`, `Invoice`, `BankPayment`, status/tier/aging enums.
+- `factoring/reconciliation_agent.py` — cash-application matching engine, rule-based, no LLM.
+- `factoring/collections_fsm.py` — collections state machine: stages, guards, transitions.
+- `factoring/collections_agent.py` — collections orchestrator; prioritizes cases, drives them through the FSM, drafts outreach text.
+- `factoring/portfolio.py` — pure-function portfolio/covenant metrics computed from the same invoice/debtor models.
+- `app.py` — Streamlit UI for both workflows.
+- `tests/` — offline pytest suite; `tests/conftest.py` mocks the Gemini API so nothing hits the network.
 
-## Non-negotiable framing rule
+## Test commands
 
-The original cold email to Isabela claimed POLARIS handles "underwriting and collections." **Underwriting was real; collections was not** — this repo's `factoring/` package exists specifically to make that claim true after the fact. Never reintroduce language that implies collections was already built before this work, and never describe this as "adapting" the demo for Zolvo — Isabela did collections AI at Domu (YC S24) and will read "adapted" as backfilling an overclaim. Frame it as: built after studying Zolvo's product, using their own vocabulary (cash application, account debtor, aging bucket, exception queue, dilution, confidence tiers).
+```bash
+pytest -q
+```
 
-## Domain rules baked into the code — do not weaken
+All tests are offline: the LLM is mocked in `tests/conftest.py`, so no API key or network access is needed to run the suite. Run this before any commit.
 
-- `factoring/reconciliation_agent.py`: rule-based, **no LLM**. Confidence tiers (100/90/70-89/<70) mirror Zolvo's own public framing. A wrong auto-match moves real money — never make this LLM-driven or probabilistic without a human-in-the-loop gate.
-- `factoring/collections_fsm.py` / `collections_agent.py`: same anti-loop pattern as `state.py` — a debtor cannot be dunned twice with the same message, escalation requires ≥2 unanswered outreaches. This is the "agents can't improvise" story; don't relax the guards to make a demo flow smoother.
-- `config.py` `DEMO_MODE`: auto-enables when no `GOOGLE_API_KEY` is set. Any new agent that calls Gemini must respect this flag with a canned/template fallback, or a hosted demo will error on camera.
+## Durable engineering rules — do not weaken
 
-## Testing
-
-`pytest` — 71 tests, all offline (LLM mocked via `tests/conftest.py`). Run this before any commit. New agents/rules need tests in the same style (see `tests/test_reconciliation.py`, `tests/test_collections_fsm.py` for the factoring-side pattern).
-
-## Knowledge graph
-
-`graphify-out/` holds a rebuilt knowledge graph (479 nodes, 886 edges, 23 communities) covering both workflows. It's gitignored (regenerable cache) — re-run `/graphify .` after significant structural changes, not after every commit. See `graphify-out/GRAPH_REPORT.md` for God Nodes, surprising connections, and open verification questions (several INFERRED edges around `MasterAgent` and `CollectionsAgent` are unverified — worth a `graphify explain` pass if touching that code).
+- **Reconciliation stays rule-based.** `factoring/reconciliation_agent.py` has no LLM in the matching path. Confidence tiers (100 exact ref+amount / 90 unambiguous amount / 70-89 probable match, human review / <70 exception queue) are deterministic. A wrong auto-match moves real money — never make matching LLM-driven or probabilistic without a human-in-the-loop gate.
+- **The review queue is actionable.** Auto-applied tiers and human approve/reject decisions both mutate ledger state through the same `apply_match` / `reject_match` path (`factoring/reconciliation_agent.py`), so system and human actions can never diverge in how they update an invoice. Every decision, from either path, produces a structured, timestamped audit entry.
+- **FSM guards must never be weakened.** Both `state.py` (origination) and `factoring/collections_fsm.py` (collections) use explicit transition tables and hard guards: a debtor/customer cannot be messaged twice with identical content, escalation requires meeting a minimum threshold of unanswered attempts, and every case has an action cap and terminal states that block further transitions. Additions should only add guards or tests, never loosen an existing one.
+- **`DEMO_MODE` contract.** `config.py` auto-enables `DEMO_MODE` when no `GOOGLE_API_KEY` is set. Any agent that calls Gemini must check this flag and fall back to a canned/template response, so a hosted demo never errors on camera for lack of a key.
+- **New logic needs offline tests.** Follow the existing style (see `tests/test_reconciliation.py`, `tests/test_collections_fsm.py`): fixture-driven, deterministic, no network calls, one behavior asserted per test.
 
 ## What NOT to do here
 
-- Don't touch `landing_page/index.html` copy without also checking `README.md` — graphify flagged them as `semantically_similar_to` at 0.85-0.95 confidence, meaning they currently describe the same mechanisms almost 1:1. Letting them drift creates the exact kind of inconsistency this whole exercise is trying to avoid.
+- Don't touch `landing_page/index.html` copy without also checking `README.md` for consistency — they describe the same mechanisms and should not drift apart.
 - Don't commit `graphify-out/`, `.agents/`, or `__pycache__/` — all gitignored on purpose.
-- Don't deploy or send the outreach email without the user's explicit go-ahead (see global CLAUDE.md: no pushing/sending without asking).
+- Don't deploy or send any outreach without the user's explicit go-ahead.
