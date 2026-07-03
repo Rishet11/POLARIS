@@ -29,33 +29,52 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Main container - Dark gradient background */
+    /* Main container - Dark gradient background with radial energy accents */
     .main {
-        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        background:
+            radial-gradient(circle at 85% -20%, rgba(0, 217, 255, 0.08) 0%, transparent 30%),
+            radial-gradient(circle at 5% 110%, rgba(233, 69, 96, 0.06) 0%, transparent 35%),
+            linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
     }
-    
+
     .stApp {
-        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        background:
+            radial-gradient(circle at 85% -20%, rgba(0, 217, 255, 0.08) 0%, transparent 30%),
+            radial-gradient(circle at 5% 110%, rgba(233, 69, 96, 0.06) 0%, transparent 35%),
+            linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
     }
     
-    /* Glassmorphism card effect */
+    /* Enhanced card effect with sophisticated depth layers */
     .glass-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(15, 15, 22, 0.4);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 217, 255, 0.15);
+        box-shadow:
+            0 0 30px rgba(0, 217, 255, 0.1),
+            inset 0 1px 2px rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         padding: 20px;
         margin: 10px 0;
     }
-    
-    /* Chat message styling */
+
+    /* Chat message styling with directional accents */
     .stChatMessage {
-        background: rgba(255, 255, 255, 0.03) !important;
+        background: rgba(15, 15, 25, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 16px !important;
         padding: 16px !important;
         margin: 12px 0 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         animation: fadeInUp 0.4s ease-out;
+    }
+
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) {
+        border-left: 3px solid #00d9ff !important;
+        background: rgba(0, 217, 255, 0.04) !important;
+    }
+
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) {
+        border-left: 3px solid #e94560 !important;
+        background: rgba(233, 69, 96, 0.02) !important;
     }
     
     @keyframes fadeInUp {
@@ -75,31 +94,37 @@ st.markdown("""
         line-height: 1.7;
     }
     
-    /* Sidebar styling */
+    /* Sidebar styling with dynamic gradient border */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #0f3460 100%);
-        border-right: 1px solid rgba(233, 69, 96, 0.3);
+        background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+        border-right: 2px solid transparent;
+        border-image: linear-gradient(180deg, #00d9ff 0%, #e94560 100%) 1;
     }
     
     [data-testid="stSidebar"] > div {
         padding-top: 0;
     }
     
-    /* Headers */
+    /* Headers with refined accent hierarchy and atmospheric glow */
     h1 {
-        background: linear-gradient(90deg, #e94560, #ff6b6b, #ffd93d);
+        background: linear-gradient(90deg, #00d9ff 0%, #e94560 50%, #ffd93d 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         font-weight: 700 !important;
+        text-shadow:
+            0 0 30px rgba(0, 217, 255, 0.2),
+            0 0 60px rgba(233, 69, 96, 0.1);
+        letter-spacing: 0.3px;
     }
-    
+
     h2, h3 {
-        color: #e94560 !important;
+        color: #00d9ff !important;
         font-weight: 600 !important;
+        text-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
     }
     
-    /* Status badges */
+    /* Status badges with refined solid colors and layered shadows */
     .status-badge {
         display: inline-block;
         padding: 8px 16px;
@@ -110,55 +135,69 @@ st.markdown("""
         letter-spacing: 1px;
         animation: pulse 2s infinite;
     }
-    
+
     @keyframes pulse {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.7; }
     }
-    
+
     .status-active {
-        background: linear-gradient(90deg, #00d9ff, #00ff88);
+        background: #00d9ff;
         color: #000;
-        box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
-    }
-    
-    .status-sanctioned {
-        background: linear-gradient(90deg, #00ff88, #00d9ff);
-        color: #000;
-        box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-        animation: glow 1.5s ease-in-out infinite alternate;
-    }
-    
-    @keyframes glow {
-        from { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
-        to { box-shadow: 0 0 40px rgba(0, 255, 136, 0.8); }
-    }
-    
-    .status-rejected {
-        background: linear-gradient(90deg, #ff4757, #ff6b81);
-        color: #fff;
-        box-shadow: 0 0 20px rgba(255, 71, 87, 0.4);
-    }
-    
-    .status-dropped {
-        background: linear-gradient(90deg, #ffa502, #ff7f50);
-        color: #000;
-        box-shadow: 0 0 20px rgba(255, 165, 2, 0.4);
+        box-shadow:
+            0 0 20px rgba(0, 217, 255, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border: 1px solid #00d9ff;
     }
 
-    /* Cash application tier badges */
+    .status-sanctioned {
+        background: #00ff88;
+        color: #0a0a0f;
+        box-shadow:
+            0 0 20px rgba(0, 255, 136, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        border: 1px solid #00ff88;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+        to { box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+    }
+
+    .status-rejected {
+        background: #ff4757;
+        color: #fff;
+        box-shadow:
+            0 0 20px rgba(255, 71, 87, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid #ff4757;
+    }
+
+    .status-dropped {
+        background: #ffa502;
+        color: #000;
+        box-shadow:
+            0 0 20px rgba(255, 165, 2, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid #ffa502;
+    }
+
+    /* Cash application tier badges with thicker borders for scannability */
     .tier-badge {
         display: inline-block;
-        padding: 3px 10px;
-        border-radius: 12px;
+        padding: 4px 12px;
+        border-radius: 14px;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.5px;
+        border: 1.5px solid;
     }
-    .tier-auto { background: rgba(0, 255, 136, 0.18); color: #00ff88; border: 1px solid rgba(0,255,136,0.4); }
-    .tier-logged { background: rgba(0, 217, 255, 0.15); color: #00d9ff; border: 1px solid rgba(0,217,255,0.4); }
-    .tier-review { background: rgba(255, 217, 61, 0.15); color: #ffd93d; border: 1px solid rgba(255,217,61,0.4); }
-    .tier-exception { background: rgba(255, 71, 87, 0.15); color: #ff6b81; border: 1px solid rgba(255,71,87,0.4); }
+
+    .tier-auto { background: rgba(0, 255, 136, 0.12); color: #00ff88; border-color: #00ff88; }
+    .tier-logged { background: rgba(0, 217, 255, 0.12); color: #00d9ff; border-color: #00d9ff; }
+    .tier-review { background: rgba(255, 217, 61, 0.12); color: #ffd93d; border-color: #ffd93d; }
+    .tier-exception { background: rgba(255, 71, 87, 0.12); color: #ff6b81; border-color: #ff6b81; }
 
     .blocked-banner {
         background: rgba(255, 71, 87, 0.12);
@@ -170,17 +209,17 @@ st.markdown("""
         font-weight: 600;
     }
     
-    /* Metric cards */
+    /* Metric cards with solid cyan accent and atmospheric glow */
     [data-testid="stMetricValue"] {
         font-size: 28px !important;
         font-weight: 700 !important;
-        background: linear-gradient(90deg, #00d9ff, #00ff88);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #00d9ff !important;
+        text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
     }
-    
+
     [data-testid="stMetricLabel"] {
-        color: rgba(255, 255, 255, 0.6) !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 13px !important;
     }
     
     /* Progress steps */
@@ -254,9 +293,9 @@ st.markdown("""
         text-align: center;
     }
     
-    /* Button styling */
+    /* Button styling with solid accent and layered shadows */
     .stButton > button {
-        background: linear-gradient(90deg, #e94560, #ff6b6b) !important;
+        background: #e94560 !important;
         color: white !important;
         border: none !important;
         border-radius: 12px !important;
@@ -264,12 +303,17 @@ st.markdown("""
         font-weight: 600 !important;
         font-size: 15px !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3) !important;
+        box-shadow:
+            0 4px 12px rgba(233, 69, 96, 0.3),
+            0 0 20px rgba(233, 69, 96, 0.15) !important;
     }
-    
+
     .stButton > button:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5) !important;
+        background: #ff6b6b !important;
+        transform: translateY(-2px) !important;
+        box-shadow:
+            0 6px 20px rgba(233, 69, 96, 0.4),
+            0 0 30px rgba(233, 69, 96, 0.25) !important;
     }
     
     /* Info boxes */
@@ -460,13 +504,8 @@ def get_progress_steps(current_stage):
         else:
             circle_class = "step-pending"
             icon = str(idx + 1)
-        
-        html += f'''
-        <div class="progress-step">
-            <div class="step-circle {circle_class}">{icon}</div>
-            <div class="step-label">{label}</div>
-        </div>
-        '''
+
+        html += f'<div class="progress-step"><div class="step-circle {circle_class}">{icon}</div><div class="step-label">{label}</div></div>'
     html += '</div>'
     return html
 
