@@ -6,11 +6,14 @@ Premium Streamlit Chat Interface with Visual Polish
 import streamlit as st
 from master_agent import MasterAgent
 from state import TerminalState, Stage
+from factoring import CollectionsAgent, ReconciliationAgent, MatchTier
+from factoring.collections_fsm import CollectionOutcome
+from factoring.mock_data import get_back_office_dataset
 import time
 
 # Page configuration
 st.set_page_config(
-    page_title="POLARIS - Personal Loans",
+    page_title="POLARIS - FSM-Governed Lending Agents",
     page_icon="🌟",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -141,6 +144,30 @@ st.markdown("""
         background: linear-gradient(90deg, #ffa502, #ff7f50);
         color: #000;
         box-shadow: 0 0 20px rgba(255, 165, 2, 0.4);
+    }
+
+    /* Cash application tier badges */
+    .tier-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .tier-auto { background: rgba(0, 255, 136, 0.18); color: #00ff88; border: 1px solid rgba(0,255,136,0.4); }
+    .tier-logged { background: rgba(0, 217, 255, 0.15); color: #00d9ff; border: 1px solid rgba(0,217,255,0.4); }
+    .tier-review { background: rgba(255, 217, 61, 0.15); color: #ffd93d; border: 1px solid rgba(255,217,61,0.4); }
+    .tier-exception { background: rgba(255, 71, 87, 0.15); color: #ff6b81; border: 1px solid rgba(255,71,87,0.4); }
+
+    .blocked-banner {
+        background: rgba(255, 71, 87, 0.12);
+        border: 1px solid rgba(255, 71, 87, 0.5);
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin: 10px 0;
+        color: #ff6b81;
+        font-weight: 600;
     }
     
     /* Metric cards */
@@ -467,7 +494,7 @@ def display_sidebar():
         st.markdown("""
         <div class="logo-container">
             <div class="logo-text">🌟 POLARIS</div>
-            <div class="logo-subtitle">Personal Loans</div>
+            <div class="logo-subtitle">FSM-Governed Lending Agents</div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -679,11 +706,219 @@ def display_chat():
             st.rerun()
 
 
+TIER_BADGES = {
+    MatchTier.AUTO_APPLY: '<span class="tier-badge tier-auto">AUTO-APPLY 100%</span>',
+    MatchTier.AUTO_APPLY_LOGGED: '<span class="tier-badge tier-logged">AUTO + AUDIT LOG</span>',
+    MatchTier.REVIEW: '<span class="tier-badge tier-review">REVIEW</span>',
+    MatchTier.EXCEPTION: '<span class="tier-badge tier-exception">EXCEPTION</span>',
+}
+
+
+def initialize_back_office():
+    """Initialize back-office session state."""
+    if "bo_data" not in st.session_state:
+        debtors, invoices, payments = get_back_office_dataset()
+        st.session_state.bo_data = {"debtors": debtors, "invoices": invoices, "payments": payments}
+        st.session_state.bo_recon = None
+        st.session_state.bo_cases = None
+        st.session_state.bo_case_log = {}
+
+
+def display_cash_application():
+    """Cash application: run reconciliation, show tiers, KPIs, exception queue."""
+    data = st.session_state.bo_data
+    st.markdown("### 💸 Cash Application")
+    st.caption(
+        "Incoming bank feed vs open factored invoices. Deterministic matching with "
+        "confidence tiers — the agent auto-applies only what is unambiguous; "
+        "everything else waits for a human."
+    )
+
+    if st.button("▶ Run Cash Application", use_container_width=False):
+        agent = ReconciliationAgent()
+        st.session_state.bo_recon = agent.process(
+            data["payments"], data["invoices"], data["debtors"]
+        )
+
+    recon = st.session_state.bo_recon
+    if not recon:
+        st.info(f"{len(data['payments'])} payments on the bank feed, "
+                f"{sum(1 for i in data['invoices'] if i.is_open)} open invoices. "
+                "Run cash application to match them.")
+        return
+
+    kpis = recon["kpis"]
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Auto-Match Rate", f"{kpis['auto_match_rate']}%")
+    c2.metric("Auto-Applied", kpis["auto_applied"])
+    c3.metric("Needs Review", kpis["review"])
+    c4.metric("Exceptions", kpis["exceptions"])
+
+    rows = []
+    for p in recon["results"]:
+        rows.append(
+            f"<tr><td>{p.payment_id}</td><td>{p.payer_name}</td>"
+            f"<td>${p.amount:,.2f}</td><td><code>{p.reference_text or '—'}</code></td>"
+            f"<td>{TIER_BADGES[p.match_tier]}</td><td>{p.match_confidence}%</td>"
+            f"<td>{', '.join(p.matched_invoice_ids) or '—'}</td></tr>"
+        )
+    st.markdown(
+        "<table style='width:100%; font-size:13px;'>"
+        "<tr><th>Payment</th><th>Payer</th><th>Amount</th><th>Memo</th>"
+        "<th>Tier</th><th>Conf.</th><th>Matched Invoices</th></tr>"
+        + "".join(rows) + "</table>",
+        unsafe_allow_html=True,
+    )
+
+    review_items = [p for p in recon["results"] if p.match_tier == MatchTier.REVIEW]
+    exception_items = [p for p in recon["results"] if p.match_tier == MatchTier.EXCEPTION]
+
+    with st.expander(f"🟡 Review queue ({len(review_items)})"):
+        for p in review_items:
+            st.markdown(f"**{p.payment_id}** · ${p.amount:,.2f} — {p.match_reason}")
+    with st.expander(f"🔴 Exception queue ({len(exception_items)})"):
+        for p in exception_items:
+            st.markdown(f"**{p.payment_id}** · ${p.amount:,.2f} — {p.match_reason}")
+    if recon["audit_log"]:
+        with st.expander(f"📋 Audit log ({len(recon['audit_log'])})"):
+            for entry in recon["audit_log"]:
+                st.markdown(f"- {entry}")
+
+
+def display_collections():
+    """Collections queue and per-case FSM driver."""
+    data = st.session_state.bo_data
+    st.markdown("### 📞 Collections")
+    st.caption(
+        "Past-due invoices ranked by priority. Every case runs inside a strict FSM: "
+        "the agent cannot send the same message twice, cannot skip the escalation "
+        "gate, and cannot act on a closed case."
+    )
+
+    if st.session_state.bo_cases is None:
+        if st.button("▶ Build Collections Queue"):
+            agent = CollectionsAgent()
+            cases = agent.prioritize(data["invoices"], data["debtors"])
+            st.session_state.bo_cases = {c.case_id: c for c in cases}
+            st.session_state.bo_agent = agent
+            st.rerun()
+        return
+
+    cases = st.session_state.bo_cases
+    agent = st.session_state.bo_agent
+    invoices = {i.invoice_id: i for i in data["invoices"]}
+
+    queue_rows = []
+    for c in sorted(cases.values(), key=lambda c: c.priority_score, reverse=True):
+        debtor = data["debtors"][c.debtor_id]
+        queue_rows.append(
+            f"<tr><td>{c.case_id}</td><td>{debtor.name}</td>"
+            f"<td>${c.open_amount:,.2f}</td><td>{c.aging_bucket}</td>"
+            f"<td>{c.priority_score:,.0f}</td><td><b>{c.stage.value}</b></td>"
+            f"<td>{c.outreach_count}</td></tr>"
+        )
+    st.markdown(
+        "<table style='width:100%; font-size:13px;'>"
+        "<tr><th>Case</th><th>Account Debtor</th><th>Open</th><th>Aging</th>"
+        "<th>Priority</th><th>Stage</th><th>Outreaches</th></tr>"
+        + "".join(queue_rows) + "</table>",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("---")
+    case_id = st.selectbox("Work a case", list(cases.keys()))
+    case = cases[case_id]
+    invoice = invoices[case.invoice_id]
+    debtor = data["debtors"][case.debtor_id]
+    log = st.session_state.bo_case_log.setdefault(case_id, [])
+
+    work_col, inspect_col = st.columns([3, 2])
+
+    with work_col:
+        b1, b2, b3 = st.columns(3)
+        if b1.button("✉️ Send reminder", use_container_width=True):
+            outcome, msg = agent.run_outreach(case, invoice, debtor)
+            if outcome is CollectionOutcome.OK:
+                log.append(("agent", msg))
+            else:
+                log.append(("blocked", f"Send blocked by FSM: {outcome.value}"))
+            st.rerun()
+        if b2.button("🔁 Retry same send", use_container_width=True,
+                     help="Simulates a looping agent re-attempting its last action"):
+            if case.sent_message_hashes and log:
+                last_sent = next((m for role, m in reversed(log) if role == "agent"), None)
+                if last_sent:
+                    case.start_outreach()
+                    outcome, _ = case.send_message(last_sent)
+                    log.append(("blocked" if outcome is not CollectionOutcome.OK else "agent",
+                                f"Duplicate send attempt → {outcome.value}"))
+            else:
+                log.append(("blocked", "Nothing sent yet — send a reminder first"))
+            st.rerun()
+        if b3.button("⚠️ Escalate", use_container_width=True):
+            outcome = case.escalate()
+            log.append(("blocked" if outcome is not CollectionOutcome.OK else "agent",
+                        f"Escalation attempt → {outcome.value}"))
+            st.rerun()
+
+        reply = st.text_input("Simulate debtor reply",
+                              placeholder='e.g. "We will pay by Friday" or "We dispute this invoice"')
+        if st.button("Submit reply") and reply:
+            outcome = agent.handle_response(case, reply)
+            log.append(("debtor", reply))
+            log.append(("agent", f"Response classified → case now in {case.stage.value}"))
+            st.rerun()
+
+        for role, msg in log[-8:]:
+            if role == "blocked":
+                st.markdown(f'<div class="blocked-banner">🛑 {msg}</div>', unsafe_allow_html=True)
+            elif role == "debtor":
+                with st.chat_message("user", avatar="🏢"):
+                    st.markdown(msg)
+            else:
+                with st.chat_message("assistant", avatar="🌟"):
+                    st.markdown(msg)
+
+    with inspect_col:
+        st.markdown("#### 🔍 Case FSM State")
+        st.json(case.to_dict())
+        st.markdown("#### 📜 Transition history")
+        for entry in case.history[-10:]:
+            icon = "🛑" if entry.startswith("BLOCKED") else "→"
+            st.markdown(f"<div style='font-size:12px'>{icon} {entry}</div>",
+                        unsafe_allow_html=True)
+
+
+def display_back_office():
+    """Factoring back-office tab: cash application + collections."""
+    initialize_back_office()
+    st.markdown("""
+    <div style="text-align: center; padding: 20px 0;">
+        <h1>🏦 Factoring Back Office</h1>
+        <p style="color: rgba(255,255,255,0.5);">Cash Application • Collections • Exception-Based Review</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    display_cash_application()
+    st.markdown("---")
+    display_collections()
+
+    st.markdown("---")
+    if st.button("🔄 Reset Back Office Data"):
+        for key in ("bo_data", "bo_recon", "bo_cases", "bo_case_log", "bo_agent"):
+            st.session_state.pop(key, None)
+        st.rerun()
+
+
 def main():
     """Main application entry point."""
     initialize_session()
     display_sidebar()
-    display_chat()
+    tab_loans, tab_back_office = st.tabs(["💬 Loan Origination", "🏦 Factoring Back Office"])
+    with tab_loans:
+        display_chat()
+    with tab_back_office:
+        display_back_office()
 
 
 if __name__ == "__main__":
