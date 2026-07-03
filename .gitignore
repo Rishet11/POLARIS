@@ -25,3 +25,8 @@ sanction_letters/
 # OS
 .DS_Store
 Thumbs.db
+
+# artifacts
+graphify-out/
+.agents/
+.claude/
