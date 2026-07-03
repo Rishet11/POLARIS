@@ -67,19 +67,15 @@ class MockGenerativeModel:
         }
         return MockResponse(json.dumps(res_data))
 
-# 4. Mock the google.generativeai module and its configure/GenerativeModel components using ModuleType
+# 4. Mock ONLY google.generativeai, keeping the real google namespace package
+# intact (google.protobuf is needed by streamlit's test framework).
 import types
-google_mod = types.ModuleType("google")
-genai_mod = types.ModuleType("google.generativeai")
+import google as google_mod
 
-# Assign components to the generativeai module
+genai_mod = types.ModuleType("google.generativeai")
 genai_mod.configure = lambda *args, **kwargs: None
 genai_mod.GenerativeModel = MockGenerativeModel
 
-# Nest them
 google_mod.generativeai = genai_mod
-
-# Inject the mock modules into sys.modules
-sys.modules['google'] = google_mod
 sys.modules['google.generativeai'] = genai_mod
 
