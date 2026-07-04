@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
+  --radius-4xl: 4px;
+
+  /* Hairline border token (distinct from shadcn --border alias) */
+  --color-border-hairline: var(--border-hairline);
+
+  /* Status system: text (fg) / background (bg) pairs */
+  --color-status-green-fg: var(--status-green-fg);
+  --color-status-green-bg: var(--status-green-bg);
+  --color-status-blue-fg: var(--status-blue-fg);
+  --color-status-blue-bg: var(--status-blue-bg);
+  --color-status-amber-fg: var(--status-amber-fg);
+  --color-status-amber-bg: var(--status-amber-bg);
+  --color-status-red-fg: var(--status-red-fg);
+  --color-status-red-bg: var(--status-red-bg);
+  --color-status-gray-fg: var(--status-gray-fg);
+  --color-status-gray-bg: var(--status-gray-bg);
+
+  --color-row-hover: var(--row-hover);
+}
+
+:root {
+  /* --- POLARIS design tokens (Task 0.3) --- */
+  --background: #fcfcfa;
+  --foreground: #16181d;
+  --card: #ffffff;
+  --card-foreground: #16181d;
+  --popover: #ffffff;
+  --popover-foreground: #16181d;
+  --primary: #1f4ab8;
+  --primary-foreground: #ffffff;
+  --secondary: #f0efe9;
+  --secondary-foreground: #16181d;
+  --muted: #f0efe9;
+  --muted-foreground: #6b6d73;
+  --accent: #1f4ab8;
+  --accent-foreground: #ffffff;
+  --accent-hover: #17389a;
+  --destructive: #b3392e;
+  --border: #e3e2dc;
+  --border-hairline: #e3e2dc;
+  --input: #e3e2dc;
+  --ring: #1f4ab8;
+  --chart-1: #1f4ab8;
+  --chart-2: #1a7f4b;
+  --chart-3: #a06b00;
+  --chart-4: #b3392e;
+  --chart-5: #6b6d73;
+  --radius: 4px;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #16181d;
+  --sidebar-primary: #1f4ab8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0efe9;
+  --sidebar-accent-foreground: #16181d;
+  --sidebar-border: #e3e2dc;
+  --sidebar-ring: #1f4ab8;
+
+  /* Status system */
+  --status-green-fg: #1a7f4b;
+  --status-green-bg: #eaf6ef;
+  --status-blue-fg: #1f4ab8;
+  --status-blue-bg: #e8eefb;
+  --status-amber-fg: #a06b00;
+  --status-amber-bg: #fbf1e0;
+  --status-red-fg: #b3392e;
+  --status-red-bg: #fbeae8;
+  --status-gray-fg: #6b6d73;
+  --status-gray-bg: #f0efe9;
+
+  --row-hover: #f7f6f2;
+}
+
+.dark {
+  /* No dark theme spec yet; keep parity with light tokens to avoid unstyled dark mode */
+  --background: #fcfcfa;
+  --foreground: #16181d;
+  --card: #ffffff;
+  --card-foreground: #16181d;
+  --popover: #ffffff;
+  --popover-foreground: #16181d;
+  --primary: #1f4ab8;
+  --primary-foreground: #ffffff;
+  --secondary: #f0efe9;
+  --secondary-foreground: #16181d;
+  --muted: #f0efe9;
+  --muted-foreground: #6b6d73;
+  --accent: #1f4ab8;
+  --accent-foreground: #ffffff;
+  --accent-hover: #17389a;
+  --destructive: #b3392e;
+  --border: #e3e2dc;
+  --border-hairline: #e3e2dc;
+  --input: #e3e2dc;
+  --ring: #1f4ab8;
+  --chart-1: #1f4ab8;
+  --chart-2: #1a7f4b;
+  --chart-3: #a06b00;
+  --chart-4: #b3392e;
+  --chart-5: #6b6d73;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #16181d;
+  --sidebar-primary: #1f4ab8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0efe9;
+  --sidebar-accent-foreground: #16181d;
+  --sidebar-border: #e3e2dc;
+  --sidebar-ring: #1f4ab8;
+  --status-green-fg: #1a7f4b;
+  --status-green-bg: #eaf6ef;
+  --status-blue-fg: #1f4ab8;
+  --status-blue-bg: #e8eefb;
+  --status-amber-fg: #a06b00;
+  --status-amber-bg: #fbf1e0;
+  --status-red-fg: #b3392e;
+  --status-red-bg: #fbeae8;
+  --status-gray-fg: #6b6d73;
+  --status-gray-bg: #f0efe9;
+  --row-hover: #f7f6f2;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    font-size: 13px;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Numeric cell convention: mono, tabular figures, right-aligned. Use on
+     amounts, ids, dates, and any numeric table column. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+}
+
+/*
+ * Dense table conventions (see components/data-table.tsx for reference markup):
+ * - Sticky header: `sticky top-0 z-10 bg-background`
+ * - Column labels: 11px uppercase, letter-spaced, muted-foreground, font-medium
+ * - Row height: 36px (h-9)
+ * - Cell padding: 8px vertical / 12px horizontal (py-2 px-3)
+ * - Row separators: 1px hairline border-hairline, bottom only
+ * - Row hover: bg-row-hover (#f7f6f2)
+ * - Numeric cells: apply `.num` (font-mono, tabular-nums, text-right)
+ */

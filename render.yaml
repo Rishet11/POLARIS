@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: polaris-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT --workers 1
+    envVars:
+      - key: DEMO_MODE
+        value: "1"
+      - key: FRONTEND_ORIGIN
+        sync: false
