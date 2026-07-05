@@ -20,7 +20,12 @@ export const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8600";
 // Helper: fetch with type safety and error handling
 async function req<T>(path: string, init?: RequestInit): Promise<T> {
   const url = `${API}${path}`;
-  const response = await fetch(url, init);
+  let response: Response;
+  try {
+    response = await fetch(url, init);
+  } catch {
+    throw new Error(`Can't reach the POLARIS engine at ${API}. Is the API running?`);
+  }
   if (!response.ok) {
     const text = await response.text();
     throw new Error(`${response.status}: ${text}`);

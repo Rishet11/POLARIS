@@ -95,6 +95,13 @@ const AuditTrail = forwardRef<AuditTrailHandle>(function AuditTrail(_props, ref)
           </DataTableRow>
         </DataTableHeader>
         <DataTableBody>
+          {entries.length === 0 && !loading && !error && (
+            <DataTableRow>
+              <DataTableCell colSpan={7} className="text-center text-muted-foreground">
+                No decisions yet. Run payment matching to populate the feed.
+              </DataTableCell>
+            </DataTableRow>
+          )}
           {entries.map((e) => {
             const key = `${e.timestamp}-${e.payment_id}`;
             return (
